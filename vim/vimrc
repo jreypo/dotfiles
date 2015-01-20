@@ -1,29 +1,42 @@
+version 6.0
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
 colorscheme github
-syntax enable
-set tabstop=4
-set softtabstop=4
-set expandtab
+imap <D-BS> 
+imap <M-BS> 
+imap <M-Down> }
+inoremap <D-Down> <C-End>
+imap <M-Up> {
+inoremap <D-Up> <C-Home>
+noremap! <M-Right> <C-Right>
+noremap! <D-Right> <End>
+noremap! <M-Left> <C-Left>
+noremap! <D-Left> <Home>
+nmap gx <Plug>NetrwBrowseX
+map <M-Down> }
+noremap <D-Down> <C-End>
+map <M-Up> {
+noremap <D-Up> <C-Home>
+noremap <M-Right> <C-Right>
+noremap <D-Right> <End>
+noremap <M-Left> <C-Left>
+noremap <D-Left> <Home>
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+vmap <BS> "-d
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set backspace=indent,eol,start
+set fileencodings=ucs-bom,utf-8,default,latin1
+set guifont=Ubuntu\ Mono:h14
+set guitablabel=%M%t
+set helplang=en
+set langmenu=none
+set laststatus=2
 set number
-set showcmd
 set nowrap
-set cursorline
-filetype indent on
-set wildmenu
-set lazyredraw
-" Search settings
-set incsearch
-set hlsearch
-nnoremap <leader><space> :nohlsearch<CR>
-" Folding settings
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-nnoremap <space> za
-set foldmethod=indent
-" File navigatin settings
-nnoremap j gj
-nnoremap k gk
-nnoremap C-e ^
-nnoremap C-a $
-nnoremap gV `[v`]
-
+set mouse=a
+set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
+set termencoding=utf-8
+syntax on
+" vim: set ft=vim :
