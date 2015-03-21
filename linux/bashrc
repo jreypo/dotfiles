@@ -7,9 +7,8 @@ fi
 
 # My customized alias	
 
--='cd -'
-..='cd ..'
-...='cd ../..'
+alias ..='cd ..'
+alias ...='cd ../..'
 alias ls='ls -aF --color=auto'
 alias ll='ls -ls'
 alias l='ls -lsh'
