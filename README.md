@@ -1,7 +1,7 @@
 My dotfiles
 ===========
 
-My dotfiles for Linux. Includes Bash and VIM environment files.
+My dotfiles for Linux, Windows and OSX. Includes PowerShell, Bash, tmux and VIM environment files.
 
 Credit goes mostly to [Timo Sugliani](https://twitter.com/tsugliani) and [Fabio Raposselli](https://twitter.com/fabiorapposelli) from whom I borrowed some examples and files.
 
