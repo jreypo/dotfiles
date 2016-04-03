@@ -13,15 +13,14 @@ set nocompatible
 
 set t_Co=256
 syntax on
-colorscheme github
-set background=light
+colorscheme wombat256mod
+set background=dark
 
 " Vim interface
 
 set number
 set ruler
 set visualbell
-set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set ignorecase
 set nohlsearch
 set laststatus=2
@@ -38,3 +37,8 @@ set expandtab
 set nowrap
 set autoindent
 
+" Powerline support
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
