@@ -26,6 +26,7 @@ set nohlsearch
 set laststatus=2
 set helplang=en
 set langmenu=none
+set cul
 
 " Format text 
 
