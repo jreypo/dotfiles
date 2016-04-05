@@ -7,7 +7,10 @@ Credit goes mostly to [Timo Sugliani](https://twitter.com/tsugliani) and [Fabio 
 
 iTerm color schemes are mine and one taken from Adam Hawkins [dotfiles](https://github.com/ahawkins/dotfiles).
 
-**TODO**
-- Enhance OSX files
-- Bash-it files
-- Script to automate the installation
+## Installation
+
+To install in OSX clone the repo `git clone https://github.com/jreypo/dotfiles.git` and execute `osx_setup.sh` script in folder `osx`.
+
+## TODO
+- Enhance Linuxtdorfiles
+- Script to automate the installation in Linux
