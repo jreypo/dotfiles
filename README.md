@@ -12,5 +12,5 @@ iTerm color schemes are mine and one taken from Adam Hawkins [dotfiles](https://
 To install in OSX clone the repo `git clone https://github.com/jreypo/dotfiles.git` and execute `osx_setup.sh` script in folder `osx`.
 
 ## TODO
-- Enhance Linuxtdorfiles
+- Enhance Linux dotfiles
 - Script to automate the installation in Linux
