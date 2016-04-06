@@ -237,6 +237,8 @@ sudo cp $HOME/Downloads/Menlo-for-Powerline/*.ttf /Library/Fonts
 
 echo ".dotfiles setup"
 
+mkdir -p $HOME/.vim/colors
+cp $dotfiles/vim/wombat256mod.vim $HOME/.vim/colors
 ln -s $dotfiles/vim/vimrc $HOME/.vimrc
 ln -s $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $dotfiles/git/gitconfig $HOME/.gitconfig
@@ -250,9 +252,8 @@ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 $HOME/.bash_it/install.sh --interactive
 
 mkdir -p $HOME/.bash_it/custom/aliases
-mkdir -p $HOME/.bash_it/custom/themes
 mkdir -p $HOME/.bash_it/custom/themes/modern-jmr
-cp $dotfiles/bash_it/custom.aliases.bash $HOME/.bash_it/custom/aliases/custom.aliases.bash
+cp $dotfiles/bash_it/custom.aliases.bash $HOME/.bash_it/custom/custom.aliases.bash
 cp $dotfiles/bash_it/modern-jmr.theme.bash $HOME/.bash_it/custom/themes/modern-jmr/modern-jmr.theme.bash
 
 ## Configuration done
