@@ -218,9 +218,9 @@ brew install git python ansible packer httpie nmap
 
 echo "Installing Atom."
 
-curl -o Atom.zip -L https://atom.io/download/mac
-unzip Atom.zip
-sudo mv Atom.app /Applications/
+curl -o $HOME/Downloads/Atom.zip -L https://atom.io/download/mac
+unzip $HOME/Downloads/Atom.zip $HOME/Downloads/
+sudo mv $HOME/Downloads/Atom.app /Applications/
 
 # Install Atom apm package manager
 read -p "Please install 'Atom Shell Commands' from Atom menu, and press any key..."
@@ -230,7 +230,7 @@ apm install language-powershell language-terraform language-puppet file-icons na
 brew install homebrew/completions/apm-bash-completion
 
 # Install additional fonts
-git clone https://github.com/abertsch/Menlo-for-Powerline.git $HOME/Downloads/
+git clone https://github.com/abertsch/Menlo-for-Powerline.git $HOME/Downloads/Menlo-for-Powerline
 sudo cp $HOME/Downloads/Menlo-for-Powerline/*.ttf /Library/Fonts
 
 ## Dotfiles setup
