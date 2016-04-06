@@ -219,7 +219,7 @@ brew install git python ansible packer httpie nmap
 echo "Installing Atom."
 
 curl -o $HOME/Downloads/Atom.zip -L https://atom.io/download/mac
-unzip $HOME/Downloads/Atom.zip $HOME/Downloads/
+unzip $HOME/Downloads/Atom.zip -d $HOME/Downloads/
 sudo mv $HOME/Downloads/Atom.app /Applications/
 
 # Install Atom apm package manager
