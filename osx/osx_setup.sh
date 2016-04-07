@@ -209,10 +209,16 @@ xcode-select --install
 
 # Install general packages
 brew update
-brew install asciinema irssi htop coreutils powerline wget xz watch screenfetch dos2unix lftp pandoc tmux reattach-to-user-namespace
+brew install asciinema irssi htop coreutils wget xz watch screenfetch dos2unix lftp pandoc tmux reattach-to-user-namespace
 
 # Install dev and sysadmin tools
 brew install git python ansible packer httpie nmap
+
+# Install Powerline
+echo "Installing Powerline"
+pip install --upgrade pip
+pip install git+git://github.com/Lokaltog/powerline
+pip install psutil
 
 # Install Atom
 
