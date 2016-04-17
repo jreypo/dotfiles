@@ -120,8 +120,8 @@ read -p "Do you want to install Infinality Ultimate font rendering? [yn]" answer
 if [[ $answer = y ]]; then
   echo "Infinality Ultimate setup"
   sudo dnf install -y freetype-freeworld
-  sudo dnf copr enable dnlrn/infinality-ultimate
-  sudo dnf install --allowerase -y cairo-infinality-ultimate \
+  sudo dnf install -y http://rpm.danielrenninghoff.com/infinality/fedora/$(rpm -E %fedora)/noarch/infinality-ultimate-repo-$(rpm -E %fedora)-1.noarch.rpm
+  sudo dnf install --allowerasing -y cairo-infinality-ultimate \
       fontconfig-infinality-ultimate \
       freetype-infinality-ultimate
 elif [[ $answer = n ]]; then
@@ -151,7 +151,7 @@ gpgcheck=1
 gpgkey=https://packagecloud.io/gpg.key
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt" >> /etc/yum.repos.d/slack.repo'
-sudo dnf install -y slack
+sudo dnf install -y --nogpgcheck slack
 
 # Install Atom
 echo "Installing Atom."
