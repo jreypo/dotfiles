@@ -107,12 +107,12 @@ read -p "Launch Fedy, make the appropiate changes and press any key to continue 
 
 # Install Albert launcher
 echo "Installing Albert launcher"
-sudo dnf copr enable rabiny/albert
+sudo dnf copr enable -y rabiny/albert
 sudo dnf install -y albert
 
 # Install Numix icons
 echo "Installing Numix icons"
-sudo dnf copr enable numix/numix
+sudo dnf copr enable -y numix/numix
 sudo dnf install -y numix-icon-theme-circle
 
 # Install better fonts
@@ -129,7 +129,7 @@ elif [[ $answer = n ]]; then
 fi
 
 echo "Install Hack font"
-sudo dnf copr enable heliocastro/hack-fonts
+sudo dnf copr enable -y heliocastro/hack-fonts
 sudo dnf install -y hack-fonts
 
 # Install Google Chrome
