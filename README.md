@@ -9,8 +9,10 @@ iTerm color schemes are mine and one taken from Adam Hawkins [dotfiles](https://
 
 ## Installation
 
-To install in OSX clone the repo `git clone https://github.com/jreypo/dotfiles.git` and execute `osx_setup.sh` script in folder `osx`.
+1. Clone the repo `git clone https://github.com/jreypo/dotfiles.git ~/.dotfiles`.
+2. For OSX execute `osx_setup.sh` script in folder `setup`.
+3. For Fedora 23 Workstation execute `fedora_setup.sh` script in folder `setup`.
 
 ## TODO
 - Enhance Linux dotfiles
-- Script to automate the installation in Linux
+- Add `irssi` config files
