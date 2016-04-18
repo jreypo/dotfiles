@@ -135,6 +135,7 @@ sudo dnf install -y hack-fonts
 # Configure GNOME
 echo "Configuring GNOME"
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
+gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar "false"
 
 # Install Google Chrome
 echo "Installing Google Chrome"
