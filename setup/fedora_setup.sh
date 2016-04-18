@@ -165,6 +165,11 @@ sudo dnf install -y $HOME/Downloads/atom.x86_64.rpm
 echo "Installing Atom packages"
 apm install file-icons monokai language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk
 
+# Install Spotify desktop client
+echo "Spotify installation"
+sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+sudo dnf install -y spotify-client
+
 # Bash-it setup
 echo "Bash-it install and configuration"
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
