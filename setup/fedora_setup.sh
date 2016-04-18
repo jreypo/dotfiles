@@ -113,7 +113,7 @@ sudo dnf install -y albert
 # Install Numix icons
 echo "Installing Numix icons"
 sudo dnf copr enable -y numix/numix
-sudo dnf install -y numix-icon-theme-circle
+sudo dnf install -y numix-icon-theme numix-icon-theme-circle
 
 # Install better fonts
 read -p "Do you want to install Infinality Ultimate font rendering? [yn]" answer
@@ -131,6 +131,10 @@ fi
 echo "Install Hack font"
 sudo dnf copr enable -y heliocastro/hack-fonts
 sudo dnf install -y hack-fonts
+
+# Configure GNOME
+echo "Configuring GNOME"
+gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
 
 # Install Google Chrome
 echo "Installing Google Chrome"
