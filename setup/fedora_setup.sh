@@ -94,9 +94,20 @@ sudo dnf install -y python-openstackclient
 # Installing theme engines
 sudo dnf install -y gtk-murrine-engine
 
-# Install MosCloud theme
+# Install Themes
+echo "Installing themes"
+echo ""
+mkdir $HOME/.themes
+git clone https://github.com/zagortenay333/ciliora-tertia-shell.git $HOME/Downloads/ciliora-tertia-shell
+mv $HOME/Downloads/Ciliora-Tertia/ $HOME/.themes/
+
 echo "Download latest MosCloud theme from http://dasnoopy.deviantart.com/ and install it to $HOME/.themes"
 read -p "Press any key when ready..."
+
+# Install Numix icons
+echo "Installing Numix icons"
+sudo dnf copr enable -y numix/numix
+sudo dnf install -y numix-icon-theme numix-icon-theme-circle
 
 # Install Fedy
 echo "Fedy installation"
@@ -109,11 +120,6 @@ read -p "Launch Fedy, make the appropiate changes and press any key to continue 
 echo "Installing Albert launcher"
 sudo dnf copr enable -y rabiny/albert
 sudo dnf install -y albert
-
-# Install Numix icons
-echo "Installing Numix icons"
-sudo dnf copr enable -y numix/numix
-sudo dnf install -y numix-icon-theme numix-icon-theme-circle
 
 # Install better fonts
 read -p "Do you want to install Infinality Ultimate font rendering? [yn]" answer
@@ -136,6 +142,16 @@ sudo dnf install -y hack-fonts
 echo "Configuring GNOME"
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
 gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar "false"
+gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "'<Super>l'"
+settings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>2']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super>3']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Super>4']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "['<Super>5']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>6']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 
 # Install Google Chrome
 echo "Installing Google Chrome"
