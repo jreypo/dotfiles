@@ -99,7 +99,7 @@ echo "Installing themes"
 echo ""
 mkdir $HOME/.themes
 git clone https://github.com/zagortenay333/ciliora-tertia-shell.git $HOME/Downloads/ciliora-tertia-shell
-mv $HOME/Downloads/Ciliora-Tertia/ $HOME/.themes/
+mv $HOME/Downloads/ciliora-tertia-shell/Ciliora-Tertia/ $HOME/.themes/
 
 echo "Download latest MosCloud theme from http://dasnoopy.deviantart.com/ and install it to $HOME/.themes"
 read -p "Press any key when ready..."
