@@ -74,6 +74,8 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
 echo "Installing Vagrant"
 sudo dnf install -y @vagrant
 sudo dnf install -y vagrant-libvirt
+sudo dnf copr enable -y dustymabe/vagrant-sshfs
+sudo dnf install -y vagrant-sshfs
 
 # Configure libvirt
 echo "Configuring libvirt"
