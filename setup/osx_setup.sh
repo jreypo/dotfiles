@@ -27,7 +27,6 @@ sudo scutil --set LocalHostName $computername
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $computername
 
 ## System configuration
-
 echo "Configuring system settings."
 
 # Disable the sound effects on boot
@@ -62,7 +61,6 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 ## Finder configuration
-
 echo "Configuring Finder."
 
 # Show icons for hard drives, servers, and removable media on the desktop
@@ -115,7 +113,6 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dock mru-spaces -bool false
 
 ## Safari configuration
-
 echo "Configuring Safari."
 
 # Set Safari’s home page to `about:blank` for faster loading
@@ -145,7 +142,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 ## Mail.app configuration
-
 echo "Configuring Mail.app."
 
 # Disable send and reply animations in Mail.app
@@ -186,7 +182,6 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ## TextEdit configuration
-
 echo "Configuring TextEdit."
 
 # Use plain text mode for new TextEdit documents
@@ -197,19 +192,20 @@ defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 ## Install software
-
 echo "Proceeding to install additional software."
 
 # Install Homebrew
-
 echo "Installing Homebrew."
 
 xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
 
+read -p "Fix brew doctor issues and press any key when ready..."
 # Install general packages
 brew update
 brew install asciinema irssi htop coreutils wget xz watch screenfetch dos2unix lftp pandoc tmux reattach-to-user-namespace
+brew
 
 # Install dev and sysadmin tools
 brew install git python ansible packer httpie nmap git-review
@@ -217,27 +213,28 @@ brew install git python ansible packer httpie nmap git-review
 # Install Powerline
 echo "Installing Powerline"
 pip install --upgrade pip
-pip install git+git://github.com/Lokaltog/powerline
+pip install --user git+git://github.com/powerline/powerline
 pip install psutil
 
+# Install OpenStack clients
+pip install python-openstackclient
+
+# Install sofware with Homebrew Cask
+echo "Installing software with Homebrew Cask"
+brew cask install eclipe-ide google-chrome iterm2
+
 # Install Atom
-
 echo "Installing Atom."
-
-curl -o $HOME/Downloads/Atom.zip -L https://atom.io/download/mac
-unzip $HOME/Downloads/Atom.zip -d $HOME/Downloads/
-sudo mv $HOME/Downloads/Atom.app /Applications/
-
-# Install Atom apm package manager
-read -p "Please install 'Atom Shell Commands' from Atom menu, and press any key..."
+brew cask install atom
 
 # Install atom packages
 apm install language-powershell language-terraform language-puppet file-icons native-ui idle-theme github-syntax language-awk autocomplete-awk
 brew install homebrew/completions/apm-bash-completion
 
 # Install additional fonts
-git clone https://github.com/abertsch/Menlo-for-Powerline.git $HOME/Downloads/Menlo-for-Powerline
-sudo cp $HOME/Downloads/Menlo-for-Powerline/*.ttf /Library/Fonts
+echo "Installing additional fonts with Homebrew"
+brew tap caskroom/fonts
+brew cask install font-menlo-for-powerline font-hack
 
 ## Dotfiles setup
 
