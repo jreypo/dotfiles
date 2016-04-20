@@ -53,6 +53,9 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      git-review \
      python-virtualenv \
      python-pip \
+     go \
+     terminator \
+     kubernetes-client \
      irssi \
      htop \
      sysstat \
@@ -186,6 +189,11 @@ apm install file-icons monokai language-terraform language-puppet idle-theme git
 echo "Spotify installation"
 sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
 sudo dnf install -y spotify-client
+
+# Install NixNote2 Evernote client
+echo "installing NixNote2"
+curl -o $HOME/Downloads/nixnote2-2.0_beta7-0.x86_64.rpm -L https://sourceforge.net/projects/nevernote/files/NixNote2%20-%20Beta%207/nixnote2-2.0_beta7-0.x86_64.rpm/download
+sudo dnf install -y $HOME/Downloads/nixnote2-2.0_beta7-0.x86_64.rpm
 
 # Bash-it setup
 echo "Bash-it install and configuration"
