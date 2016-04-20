@@ -42,6 +42,7 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      gnome-shell-extension-alternate-tab \
      gnome-shell-extension-openweather.noarch \
      gnome-shell-extension-auto-move-windows \
+     gnome-shell-extension-background-logo \
      gnome-tweak-tool \
      ruby \
      powerline \
@@ -65,6 +66,7 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      wireshark-gnome \
      libvirt-wireshark \
      glances \
+     transmission \
      gconf-editor \
      dconf-editor
 
@@ -133,6 +135,8 @@ if [[ $answer = y ]]; then
   sudo dnf install --allowerasing -y cairo-infinality-ultimate \
       fontconfig-infinality-ultimate \
       freetype-infinality-ultimate
+  sudo cp /usr/share/doc/freetype-infinality-ultimate/infinality-settings.sh /etc/X11/xinit/xinitrc.d/infinality-settings.sh
+  sudo echo "export INFINALITY_FT="osx"" >> /etc/X11/xinit/xinitrc.d/infinality-settings.sh
 elif [[ $answer = n ]]; then
   echo "Infinality Ultimate not installed. Use Fedy to get a better font rendering."
 fi
