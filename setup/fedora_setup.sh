@@ -125,11 +125,6 @@ chmod +x $HOME/Downloads/fedy-installer
 sudo $HOME/Downloads/fedy-installer
 read -p "Launch Fedy, make the appropiate changes and press any key to continue the setup..."
 
-# Install Albert launcher
-echo "Installing Albert launcher"
-sudo dnf copr enable -y rabiny/albert
-sudo dnf install -y albert
-
 # Install better fonts
 read -p "Do you want to install Infinality Ultimate font rendering? [yn]" answer
 if [[ $answer = y ]]; then
