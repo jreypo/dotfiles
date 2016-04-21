@@ -67,6 +67,8 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      libvirt-wireshark \
      glances \
      transmission \
+     filezilla \
+     lftp \
      gconf-editor \
      dconf-editor
 
