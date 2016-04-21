@@ -208,6 +208,15 @@ mkdir -p $HOME/.bash_it/custom/themes/modern-jmr
 cp $dotfiles/bash_it/custom.fedora-aliases.bash $HOME/.bash_it/custom/custom.aliases.bash
 cp $dotfiles/bash_it/modern-jmr.theme.bash $HOME/.bash_it/custom/themes/modern-jmr/modern-jmr.theme.bash
 
+# Configure IRSSI
+echo "irssi configuration"
+mkdir -p $HOME/.irssi/scripts/autorun
+curl -o $HOME/.irssi/scripts/autorun/nicklist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/nicklist.pl
+curl -o $HOME/.irssi/scripts/autorun/adv_windowlist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/adv_windowlist.pl
+curl -o $HOME/.irssi/scripts/autorun/hilightwin.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/hilightwin.pl
+curl -o $HOME/.irssi/weed.theme https://raw.githubusercontent.com/ronilaukkarinen/weed/master/weed.theme
+ln -s $dotfiles/irssi/config $HOME/.irssi/config
+
 # Dotfiles setup
 echo ".dotfiles setup"
 mkdir -p $HOME/.vim/colors
