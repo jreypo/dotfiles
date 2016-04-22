@@ -14,5 +14,5 @@ iTerm color schemes are mine and one taken from Adam Hawkins [dotfiles](https://
 3. For Fedora 23 Workstation execute `fedora_setup.sh` script in folder `setup`.
 
 ## TODO
-- Enhance Linux dotfiles
-- Add `irssi` config files
+- Add bootstrap script for servers (CentOS, RHEL, Fedora)
+- Add dotfiles and bootstrap script for Debian
