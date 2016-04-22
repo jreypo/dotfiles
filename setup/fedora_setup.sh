@@ -79,6 +79,10 @@ sudo dnf install -y vagrant-libvirt
 sudo dnf copr enable -y dustymabe/vagrant-sshfs
 sudo dnf install -y vagrant-sshfs
 
+# Install libvirt
+echo "Install Virtualization"
+sudo dnf groupinstall with-optional virtualization
+
 # Configure libvirt
 echo "Configuring libvirt"
 sudo systemctl enable libvirtd
