@@ -39,12 +39,13 @@ echo "Installing VLC and multimedia codecs"
 sudo dnf -y install gstreamer1-libav \
      gstreamer1-plugins-bad-free-extras \
      gstreamer1-plugins-bad-freeworld \
-     gstreamer1-plugsins-base-tools \
+     gstreamer1-plugins-base-tools \
      gstreamer1-plugins-good-extras \
      gstreamer1-plugins-ugly \
      gstreamer1-plugins-bad-free \
      gstreamer1-plugins-good \
      gstreamer1-plugins-base
+
 sudo dnf install -y vlc
 
 # Install packages
@@ -67,7 +68,7 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      python-pip \
      go \
      terminator \
-     pgadmin \
+     pgadmin3 \
      irssi \
      htop \
      sysstat \
