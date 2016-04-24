@@ -69,6 +69,7 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      transmission \
      filezilla \
      lftp \
+     calibre \
      gconf-editor \
      dconf-editor
 
