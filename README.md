@@ -9,10 +9,13 @@ iTerm color schemes are mine and one taken from Adam Hawkins [dotfiles](https://
 
 ## Installation
 
+Included with the repo there are two installation scripts for OSX and Fedora. This scripts are not only to install dotfiles but also to configure a newly installed system. Tested with OSX 10.11 and Fedora 23.
+
 1. Clone the repo `git clone https://github.com/jreypo/dotfiles.git ~/.dotfiles`.
 2. For OSX execute `osx_setup.sh` script in folder `setup`.
 3. For Fedora 23 Workstation execute `fedora_setup.sh` script in folder `setup`.
 
 ## TODO
+
 - Add bootstrap script for servers (CentOS, RHEL, Fedora)
 - Add dotfiles and bootstrap script for Debian

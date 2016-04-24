@@ -12,6 +12,18 @@
 ## Initial configuration
 
 # Ask for the administrator password upfront
+
+echo ""
+echo "###############################################################"
+echo "#                                                             #"
+echo "#            Dotfiles installation script for OSX             #"
+echo "#                  Written by Juan Manuel Rey                 #"
+echo "#               Github: https://github.com/jreypo             #"
+echo "#                 Blog: http://blog.jreypo.io                 #"
+echo "#                                                             #"
+echo "###############################################################"
+echo ""
+
 sudo -v
 dotfiles=$HOME/.dotfiles
 

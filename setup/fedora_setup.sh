@@ -9,6 +9,17 @@
 
 dotfiles=$HOME/.dotfiles
 
+echo ""
+echo "###############################################################"
+echo "#                                                             #"
+echo "#            Dotfiles installation script for Fedora          #"
+echo "#                  Written by Juan Manuel Rey                 #"
+echo "#               Github: https://github.com/jreypo             #"
+echo "#                 Blog: http://blog.jreypo.io                 #"
+echo "#                                                             #"
+echo "###############################################################"
+echo ""
+
 # Configure SELinux
 echo "SELinux setup"
 sudo setenforce 0
@@ -56,7 +67,7 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      python-pip \
      go \
      terminator \
-     kubernetes-client \
+     pgadmin \
      irssi \
      htop \
      sysstat \
@@ -100,8 +111,8 @@ sudo systemctl start docker.service
 sudo systemctl enable docker.service
 
 # Install OpenStack client
-echo "Installing OpenStack clients"
-sudo dnf install -y python-openstackclient
+echo "Installing OpenStack and Kubernetes clients"
+sudo dnf install -y python-openstackclient kubernetes-client
 
 ## Intall themes and eye-candy
 
