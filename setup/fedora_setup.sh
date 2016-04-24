@@ -153,7 +153,7 @@ echo "Configuring GNOME"
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
 gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar "false"
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "'<Super>l'"
-settings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>2']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super>3']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Super>4']"
