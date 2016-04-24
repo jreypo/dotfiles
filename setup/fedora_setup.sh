@@ -152,7 +152,7 @@ if [[ $answer = y ]]; then
       fontconfig-infinality-ultimate \
       freetype-infinality-ultimate
   sudo cp /usr/share/doc/freetype-infinality-ultimate/infinality-settings.sh /etc/X11/xinit/xinitrc.d/infinality-settings.sh
-  sudo echo "export INFINALITY_FT="osx"" >> /etc/X11/xinit/xinitrc.d/infinality-settings.sh
+#  sudo echo "export INFINALITY_FT="osx"" >> /etc/X11/xinit/xinitrc.d/infinality-settings.sh
 elif [[ $answer = n ]]; then
   echo "Infinality Ultimate not installed. Use Fedy to get a better font rendering."
 fi
