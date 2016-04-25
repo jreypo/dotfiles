@@ -215,7 +215,7 @@ brew install git python ansible packer httpie nmap git-review
 # Install Powerline
 echo "Installing Powerline"
 pip install --upgrade pip
-pip install --user git+git://github.com/powerline/powerline
+pip install git+git://github.com/Lokaltog/powerline
 pip install psutil
 
 # Install OpenStack clients
