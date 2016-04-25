@@ -223,7 +223,7 @@ pip install python-openstackclient
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-brew cask install eclipe-ide google-chrome iterm2
+brew cask install eclipe-ide google-chrome
 
 # Install Atom
 echo "Installing Atom"
