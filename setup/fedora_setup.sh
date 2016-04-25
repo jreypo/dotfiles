@@ -203,7 +203,7 @@ curl -o $HOME/Downloads/atom.x86_64.rpm -L https://atom.io/download/rpm
 sudo dnf install -y $HOME/Downloads/atom.x86_64.rpm
 
 echo "Installing Atom packages"
-apm install file-icons monokai language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk
+apm install file-icons monokai language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk monokai-arc atom-arc-ui
 
 # Install Spotify desktop client
 echo "Spotify installation"
