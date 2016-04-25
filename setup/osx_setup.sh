@@ -39,7 +39,7 @@ sudo scutil --set LocalHostName $computername
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $computername
 
 ## System configuration
-echo "Configuring system settings."
+echo "Configuring system settings"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -73,7 +73,7 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 ## Finder configuration
-echo "Configuring Finder."
+echo "Configuring Finder"
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -112,8 +112,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 ## Dock, Dashboard, and hot corners configuration
-
-echo "Configuring Dock and desktop."
+echo "Configuring Dock and desktop"
 
 # Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
@@ -125,7 +124,7 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dock mru-spaces -bool false
 
 ## Safari configuration
-echo "Configuring Safari."
+echo "Configuring Safari"
 
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
@@ -154,7 +153,7 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 ## Mail.app configuration
-echo "Configuring Mail.app."
+echo "Configuring Mail.app"
 
 # Disable send and reply animations in Mail.app
 defaults write com.apple.mail DisableReplyAnimations -bool true
@@ -169,23 +168,14 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\
 # Disable inline attachments (just show the icons)
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 
-## Terminal & iTerm 2 configuration
-echo "Configuring Terminal."
+## Terminal configuration
+echo "Configuring Terminal"
 
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
-echo "Configuring iTerm 2."
-
-# Install pretty iTerm colors
-open "${dotfiles}/iterm/ahawkins.itermcolors"
-
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
 ## Time Machine configuration
-
-echo "Configuring Time Machine."
+echo "Configuring Time Machine"
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
@@ -194,7 +184,7 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ## TextEdit configuration
-echo "Configuring TextEdit."
+echo "Configuring TextEdit"
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
@@ -204,10 +194,10 @@ defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 ## Install software
-echo "Proceeding to install additional software."
+echo "Proceeding to install additional software"
 
 # Install Homebrew
-echo "Installing Homebrew."
+echo "Installing Homebrew"
 
 xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -236,7 +226,7 @@ echo "Installing software with Homebrew Cask"
 brew cask install eclipe-ide google-chrome iterm2
 
 # Install Atom
-echo "Installing Atom."
+echo "Installing Atom"
 brew cask install atom
 
 # Install atom packages
@@ -248,10 +238,27 @@ echo "Installing additional fonts with Homebrew"
 brew tap caskroom/fonts
 brew cask install font-menlo-for-powerline font-hack
 
+# Iterm2 configuration
+echo "Configuring iTerm 2"
+
+# Install pretty iTerm colors
+open "${dotfiles}/iterm/ahawkins.itermcolors"
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
 ## Dotfiles setup
 
-echo ".dotfiles setup"
+# Configure IRSSI
+echo "irssi configuration"
+mkdir -p $HOME/.irssi/scripts/autorun
+curl -o $HOME/.irssi/scripts/autorun/nicklist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/nicklist.pl
+curl -o $HOME/.irssi/scripts/autorun/adv_windowlist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/adv_windowlist.pl
+curl -o $HOME/.irssi/scripts/autorun/hilightwin.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/hilightwin.pl
+curl -o $HOME/.irssi/weed.theme https://raw.githubusercontent.com/ronilaukkarinen/weed/master/weed.theme
+ln -s $dotfiles/irssi/config $HOME/.irssi/config
 
+echo ".dotfiles setup"
 mkdir -p $HOME/.vim/colors
 cp $dotfiles/vim/wombat256mod.vim $HOME/.vim/colors
 ln -s $dotfiles/vim/vimrc $HOME/.vimrc
@@ -260,7 +267,6 @@ ln -s $dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $dotfiles/git/gitignore_global $HOME/.gitignore_global
 
 ## Bash-it setup
-
 echo "Bash-it install and configuration."
 
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
