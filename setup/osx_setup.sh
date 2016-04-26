@@ -230,7 +230,7 @@ echo "Installing Atom"
 brew cask install atom
 
 # Install atom packages
-apm install language-powershell language-terraform language-puppet file-icons native-ui idle-theme github-syntax language-awk autocomplete-awk
+apm install language-powershell language-terraform language-puppet file-icons native-ui idle-theme github-syntax language-awk autocomplete-awk dash
 brew install homebrew/completions/apm-bash-completion
 
 # Install additional fonts
