@@ -206,7 +206,7 @@ brew doctor
 read -p "Fix brew doctor issues and press any key when ready..."
 # Install general packages
 brew update
-brew install asciinema irssi htop coreutils wget xz watch screenfetch dos2unix lftp pandoc tmux reattach-to-user-namespace
+brew install asciinema irssi htop coreutils wget xz watch screenfetch dos2unix lftp pandoc tmux reattach-to-user-namespace openshift-cli
 brew
 
 # Install dev and sysadmin tools
