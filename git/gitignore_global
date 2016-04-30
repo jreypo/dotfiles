@@ -7,12 +7,12 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+Desktop.ini
 
 # Temp files
 *~
 .vagrant
 Gemfile.lock
-node_modules
 *.log
 
 # db files
@@ -24,6 +24,7 @@ node_modules
 *.o
 *.so
 *.pyc
+*.out
 
 # archives
 *.jar
@@ -34,3 +35,8 @@ node_modules
 *.gz
 *.zip
 *.7z
+
+# Application specific files
+venv
+node_modules
+.sass-cache
