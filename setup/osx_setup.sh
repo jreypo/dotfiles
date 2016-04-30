@@ -210,7 +210,7 @@ brew install asciinema irssi htop coreutils wget xz watch screenfetch dos2unix l
 brew
 
 # Install dev and sysadmin tools
-brew install git python ansible packer httpie nmap git-review
+brew install git python ansible packer httpie nmap git-review terraform
 
 # Install Powerline
 echo "Installing Powerline"
