@@ -223,7 +223,7 @@ pip install python-openstackclient
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-brew cask install eclipe-ide google-chrome firefox alfred transmission filezilla cyberduck pgamdin3 mysqlworkbench github-desktop
+brew cask install eclipe-ide google-chrome firefox alfred transmission filezilla cyberduck github-desktop
 
 # Install Atom
 echo "Installing Atom"
