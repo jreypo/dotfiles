@@ -220,6 +220,8 @@ pip install psutil
 
 # Install OpenStack clients
 pip install python-openstackclient
+pip install python-neutronclient
+pip install python-heatclient
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
