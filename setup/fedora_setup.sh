@@ -238,7 +238,7 @@ ln -s $dotfiles/irssi/config $HOME/.irssi/config
 echo ".dotfiles setup"
 mkdir -p $HOME/.vim/colors
 cp $dotfiles/vim/wombat256mod.vim $HOME/.vim/colors
-ln -s $dotfiles/vim/vimrc $HOME/.vimrc
+ln -s $dotfiles/vim/vimrc_fedora $HOME/.vimrc
 ln -s $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $dotfiles/git/gitignore_global $HOME/.gitignore_global
