@@ -180,6 +180,11 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 
+# Install Albert
+echo "Installing Albert"
+sudo dnf -y copr enable rabiny/albert
+sudo dnf -y install albert
+
 # Install Google Chrome
 echo "Installing Google Chrome"
 sudo curl -o $HOME/Downloads/linux_signing_key.pub https://dl-ssl.google.com/linux/linux_signing_key.pub
