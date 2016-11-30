@@ -29,5 +29,5 @@ function prompt {
 
 Set-Alias gep Get-ExecutionPolicy
 Set-Alias sep Set-ExecutionPolicy
-set-alias   more	more.com
-set-alias   for		ForEach-Object
+Set-Alias more more.com
+Set-Alias for ForEach-Object
