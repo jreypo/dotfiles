@@ -25,6 +25,8 @@ function prompt {
    return ' '
 }
 
+# Shell functions
+
 function cddash {
     if ($args[0] -eq '-') {
         $pwd = $OLDPWD;
