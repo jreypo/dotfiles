@@ -44,7 +44,7 @@ function cddash {
 Set-Alias -Name gep -Value Get-ExecutionPolicy
 Set-Alias -Name sep -Value Set-ExecutionPolicy
 Set-Alias -Name ll -Value Get-ChildItem
-Set-Alias for	ForEach-Object
+Set-Alias -Name for	-Value ForEach-Object
 Set-Alias -Name packer -Value "C:\Program Files\Hashicorp\packer.exe"
 Set-Alias -Name terraform -Value "C:\Program Files\Hashicorp\terraform.exe"
 Set-Alias -Name cd -Value cddash -Option AllScope
