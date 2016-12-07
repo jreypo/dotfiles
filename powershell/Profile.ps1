@@ -25,9 +25,25 @@ function prompt {
    return ' '
 }
 
+function cddash {
+    if ($args[0] -eq '-') {
+        $pwd = $OLDPWD;
+    } else {
+        $pwd = $args[0];
+    }
+    $tmp = pwd;
+
+    if ($pwd) {
+        Set-Location $pwd;
+    }
+    Set-Variable -Name OLDPWD -Value $tmp -Scope global;
+}
+
 # Customized Alias
 
 Set-Alias gep Get-ExecutionPolicy
 Set-Alias sep Set-ExecutionPolicy
-Set-Alias more more.com
-Set-Alias for ForEach-Object
+Set-Alias for	ForEach-Object
+Set-Alias packer "C:\Program Files\Hashicorp\packer.exe"
+Set-Alias terraform "C:\Program Files\Hashicorp\terraform.exe"
+Set-Alias -Name cd -value cddash -Option AllScope
