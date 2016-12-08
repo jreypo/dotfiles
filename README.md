@@ -14,6 +14,7 @@ Included with the repo there are two installation scripts for OSX and Fedora. Th
 1. Clone the repo `git clone https://github.com/jreypo/dotfiles.git ~/.dotfiles`.
 2. For OSX execute `osx_setup.sh` script in folder `setup`.
 3. For Fedora 23 Workstation execute `fedora_setup.sh` script in folder `setup`.
+4. For Windows PowerShell follow the README instructions in the `powershell` folder.
 
 ## TODO
 
