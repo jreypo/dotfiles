@@ -1,0 +1,36 @@
+" 
+" vimrc
+" 
+" Author: Juan Manuel Rey <juanmanuel.reyportal@gmail.com>
+"   Blog: http://blog.jreypo.io
+"
+
+" General configuration
+
+set nocompatible
+
+" Theme and colors configuration
+
+syntax on
+
+" Vim interface
+
+set number
+set ruler
+set visualbell
+set ignorecase
+set nohlsearch
+set laststatus=2
+set helplang=en
+set langmenu=none
+set cul
+
+" Format text 
+
+set mouse=a
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set nowrap
+set autoindent
