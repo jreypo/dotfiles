@@ -14,14 +14,16 @@ function shorten-path([string] $path) {
 }
 
 function prompt {
-   write-host 'PowerShell' -n -f yellow
-   write-host '-[' -n -f gray
-   write-host (shorten-path (pwd).Path) -n -f white
+   write-host '[' -NoNewline -ForegroundColor gray
+   Write-Host "$ENV:USERNAME@" -NoNewline -ForegroundColor Yellow
+   Write-Host "$ENV:COMPUTERNAME".ToLower() -NoNewline -ForegroundColor Yellow
+   write-host ']' -NoNewline -ForegroundColor gray
+   write-host '-[' -NoNewline -ForegroundColor gray
+   write-host (shorten-path (pwd).Path) -NoNewline -ForegroundColor white
    Write-VcsStatus
    $global:LASTEXITCODE = $realLASTEXITCODE
-   write-host ']' -n -f gray
-   write-host ' %' -n
-   # Update-HostWindowTitle
+   write-host ']' -NoNewline -ForegroundColor gray
+   write-host ' %' -NoNewline
    return ' '
 }
 
