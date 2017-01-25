@@ -92,22 +92,26 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
 # Install Vagrant
 echo "Installing Vagrant"
 sudo dnf install -y @vagrant
-sudo dnf install -y vagrant-libvirt
-sudo dnf copr enable -y dustymabe/vagrant-sshfs
-sudo dnf install -y vagrant-sshfs
 
 # Install libvirt
 echo "Install Virtualization"
-sudo dnf -y groupinstall with-optional virtualization
-
-# Configure libvirt
-echo "Configuring libvirt"
-sudo systemctl enable libvirtd
-sudo gpasswd -a ${USER} libvirt
-sudo newgrp libvirt
-
-echo "Installing Virt-builder"
-sudo dnf install -y libguestfs-tools-c
+read -p "Do you want to install Linux KVM native virtualization? [yn]" answer
+if [[ $answer = y ]]; then
+  sudo dnf -y groupinstall with-optional virtualization
+  # Configure libvirt
+  echo "Configuring libvirt"
+  sudo systemctl enable libvirtd
+  sudo gpasswd -a ${USER} libvirt
+  sudo newgrp libvirt
+  echo "Installing Virt-builder"
+  sudo dnf install -y libguestfs-tools-c
+  echo "Installin Vagrant libvirt plugin"
+  sudo dnf install -y vagrant-libvirt
+  sudo dnf copr enable -y dustymabe/vagrant-sshfs
+  sudo dnf install -y vagrant-sshfs
+elif [[ $answer = n ]]; then
+  echo "Install your favorite Virtualization software through its supported method"
+fi
 
 # Install Docker
 echo "Installing Docker"
