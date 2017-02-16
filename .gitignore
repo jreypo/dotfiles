@@ -9,3 +9,4 @@ bin/
 Gemfile.lock
 _site/
 .gitignore
+.vscode
