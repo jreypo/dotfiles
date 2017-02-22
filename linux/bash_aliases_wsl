@@ -1,0 +1,10 @@
+alias bdf='df -h'
+alias docker=docker.exe
+alias docker-compose=docker-compose.exe
+alias docker-machine=docker-machine.exe
+alias j='jobs -l'
+alias h=history
+alias ports='netstat -tulanp'
+alias ..='cd ..'         # Go up one directory
+alias ...='cd ../..'     # Go up two directories
+alias ....='cd ../../..' # Go up three directories
