@@ -15,7 +15,7 @@ set t_Co=256
 syntax on
 colorscheme wombat256mod
 set background=dark
-set guifont=Hack:h10
+set guifont=Consolas:h10
 
 " Vim interface
 
