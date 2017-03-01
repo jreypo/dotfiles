@@ -204,6 +204,8 @@ case $CODEED in
      atom)
         curl -o $HOME/Downloads/atom.x86_64.rpm -L https://atom.io/download/rpm
         sudo dnf install -y $HOME/Downloads/atom.x86_64.rpm
+        echo "Installing Atom packages"
+        apm install file-icons language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk spacegray-light-neue-ui wombat-dark-syntax
         ;;
     vscode)
         curl -o $HOME/Downloads/code.x86_64.rpm -L http://code.visualstudio.com/docs/?dv=linux64_rpm
@@ -213,9 +215,6 @@ case $CODEED in
         echo "None selected, use Vim"
         ;;
 esac
-
-echo "Installing Atom packages"
-apm install file-icons language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk spacegray-light-neue-ui wombat-dark-syntax
 
 # Install Spotify desktop client
 echo "Spotify installation"
