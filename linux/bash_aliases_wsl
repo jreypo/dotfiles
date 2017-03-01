@@ -1,8 +1,8 @@
 alias bdf='df -h'
-alias docker=docker.exe
-alias docker-compose=docker-compose.exe
-alias docker-machine=docker-machine.exe
 alias j='jobs -l'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
 alias h=history
 alias lports='NETSTAT.EXE -an | grep LISTENING'
 alias ..='cd ..'         # Go up one directory
