@@ -128,21 +128,6 @@ sudo dnf install -y python-openstackclient kubernetes-client
 # Installing theme engines
 sudo dnf install -y gtk-murrine-engine
 
-# Install Themes
-echo "Installing themes"
-echo ""
-mkdir $HOME/.themes
-git clone https://github.com/zagortenay333/ciliora-tertia-shell.git $HOME/Downloads/ciliora-tertia-shell
-mv $HOME/Downloads/ciliora-tertia-shell/Ciliora-Tertia/ $HOME/.themes/
-
-#echo "Download latest MosCloud theme from http://dasnoopy.deviantart.com/ and install it to $HOME/.themes"
-#read -p "Press any key when ready..."
-
-# Install Numix icons
-#echo "Installing Numix icons"
-#sudo dnf copr enable -y numix/numix
-#sudo dnf install -y numix-icon-theme numix-icon-theme-circle
-
 # Install Fedy
 echo "Fedy installation"
 curl -o $HOME/Downloads/fedy-installer http://folkswithhats.org/fedy-installer
@@ -211,9 +196,23 @@ sslcacert=/etc/pki/tls/certs/ca-bundle.crt" >> /etc/yum.repos.d/slack.repo'
 sudo dnf install -y --nogpgcheck slack
 
 # Install Atom
-echo "Installing Atom."
-curl -o $HOME/Downloads/atom.x86_64.rpm -L https://atom.io/download/rpm
-sudo dnf install -y $HOME/Downloads/atom.x86_64.rpm
+echo "Installing Editor."
+printf "Which code editor do you prefer, atom, vscode or none of them?"
+read CODEED
+
+case $CODEED in
+     atom)
+        curl -o $HOME/Downloads/atom.x86_64.rpm -L https://atom.io/download/rpm
+        sudo dnf install -y $HOME/Downloads/atom.x86_64.rpm
+        ;;
+    vscode)
+        curl -o $HOME/Downloads/code.x86_64.rpm -L http://code.visualstudio.com/docs/?dv=linux64_rpm
+        sudo dnf install -y $HOME/Downloads/code.x86_64.rpm
+        ;;
+    none)
+        echo "None selected, use Vim"
+        ;;
+esac
 
 echo "Installing Atom packages"
 apm install file-icons language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk spacegray-light-neue-ui wombat-dark-syntax
