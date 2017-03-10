@@ -89,7 +89,7 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
 
 # Install Vagrant
 echo "Installing Vagrant"
-sudo dnf install -y @vagrant
+sudo dnf install -y vagrant
 
 # Install libvirt
 echo "Install Virtualization"
@@ -167,11 +167,6 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 
-# Install Albert
-echo "Installing Albert"
-sudo dnf -y copr enable rabiny/albert
-sudo dnf -y install albert
-
 # Install Google Chrome
 echo "Installing Google Chrome"
 sudo curl -o $HOME/Downloads/linux_signing_key.pub https://dl-ssl.google.com/linux/linux_signing_key.pub
@@ -206,7 +201,7 @@ case $CODEED in
         apm install file-icons language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk spacegray-light-neue-ui wombat-dark-syntax
         ;;
     vscode)
-        curl -o $HOME/Downloads/code.x86_64.rpm -L http://code.visualstudio.com/docs/?dv=linux64_rpm
+        curl -o $HOME/Downloads/code.x86_64.rpm -L https://go.microsoft.com/fwlink/?LinkID=760867
         sudo dnf install -y $HOME/Downloads/code.x86_64.rpm
         ;;
     none)
