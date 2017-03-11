@@ -64,6 +64,9 @@ sudo add-apt-repository -y ppa:snwh/pulp
 sudo apt-get update
 sudo apt-get install -y paper-gtk-theme paper-icon-theme paper-cursor-theme
 
+echo "Installing more themes"
+sudo apt-get install -y ultra-flat-theme ultra-flat-icons
+sudo git clone https://github.com/EmptyStackExn/mono-dark-flattr-icons.git /usr/share/icons/mono-dark-flattr-icons
 
 # Install Docker
 echo "Installing Docker"
