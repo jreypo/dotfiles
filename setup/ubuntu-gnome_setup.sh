@@ -50,7 +50,7 @@ sudo apt-get update
 sudo apt-get install -y numix-gtk-theme numix-icon-theme numix-icon-theme-square numix-icon-theme-circle numix-folders 
 
 echo "Installing ARC themes"
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
+# sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
 sudo apt-get update
 sudo apt-get install -y arc-theme
 
