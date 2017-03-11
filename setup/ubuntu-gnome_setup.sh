@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Setup script for Ubuntu Workstation
+# Setup script for Ubuntu GNOME 16.10
 #
 # Written by Juan Manuel Rey
 # Github: https://github.com/jreypo
@@ -12,7 +12,7 @@ dotfiles=$HOME/.dotfiles
 echo ""
 echo "###############################################################"
 echo "#                                                             #"
-echo "#            Dotfiles installation script for Ubuntu 16.04    #"
+echo "#            Dotfiles installation script for Ubuntu 16.10    #"
 echo "#                  Written by Juan Manuel Rey                 #"
 echo "#               Github: https://github.com/jreypo             #"
 echo "#                 Blog: http://blog.jreypo.io                 #"
@@ -57,7 +57,7 @@ sudo apt-get update
 sudo apt-get install -y arc-theme
 
 echo "Installing ARC-flatabolous themes"
-sudo add-apt-repository ppa:noobslab/themes
+sudo add-apt-repository -y ppa:noobslab/themes
 sudo apt-get update
 sudo apt-get install arc-flatabulous-themed
 
