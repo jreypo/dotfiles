@@ -41,6 +41,8 @@ sudo apt-get install -y chrome-gnome-shell \
      ubuntu-restricted-addons \
      ubuntu-restricted-extras \
      git-review \
+     python-pip \
+     tmux \
      terminator
 
 # Install GNOME GTK and icon themes
@@ -72,6 +74,10 @@ sudo git clone https://github.com/EmptyStackExn/mono-dark-flattr-icons.git /usr/
 echo "Installing Docker"
 sudo apt-get install -y docker.io
 sudo usermod -aG docker $(whoami)
+
+# Install Powerline
+echo "Installing Powerline"
+sudo pip install git+git://github.com/Lokaltog/powerline
 
 # Install Atom
 echo "Installing Editor."
@@ -128,6 +134,15 @@ sudo apt-get install spotify-client
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo apt-get update
 sudo apt-get install -y google-chrome-stable
+
+# Dotfiles setup
+echo ".dotfiles setup"
+mkdir -p $HOME/.vim/colors
+cp $dotfiles/vim/wombat256mod.vim $HOME/.vim/colors
+ln -s $dotfiles/vim/vimrc_ubuntu $HOME/.vimrc
+ln -s $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+ln -s $dotfiles/git/gitconfig $HOME/.gitconfig
+ln -s $dotfiles/git/gitignore_global $HOME/.gitignore_global
 
 ## Configuration done
 echo "Done. Please use Gnome Tweak-Tool to adjust your settings and restart in order for all the changes to take effect."
