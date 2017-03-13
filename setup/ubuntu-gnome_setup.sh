@@ -56,10 +56,10 @@ echo "Installing ARC themes"
 sudo apt-get update
 sudo apt-get install -y arc-theme
 
-echo "Installing ARC-flatabolous themes"
-sudo add-apt-repository -y ppa:noobslab/themes
-sudo apt-get update
-sudo apt-get install arc-flatabulous-themed
+#echo "Installing ARC-flatabolous themes"
+#sudo add-apt-repository -y ppa:noobslab/themes
+#sudo apt-get update
+#sudo apt-get install arc-flatabulous-theme
 
 echo "Installing Paper themes"
 sudo add-apt-repository -y ppa:snwh/pulp
