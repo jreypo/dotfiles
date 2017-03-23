@@ -118,8 +118,8 @@ sudo systemctl start docker.service
 sudo systemctl enable docker.service
 
 # Install OpenStack client
-echo "Installing OpenStack and Kubernetes clients"
-sudo dnf install -y python-openstackclient kubernetes-client
+echo "Installing Kubernetes clients"
+sudo dnf install -y kubernetes-client
 
 ## Intall themes and eye-candy
 
@@ -211,8 +211,13 @@ esac
 
 # Install Spotify desktop client
 echo "Spotify installation"
-sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-sudo dnf install -y spotify-client
+printf "Do you want to install Spotify Client? [yn]" spoty
+if [[ $spoty = y ]]; then
+  sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+  sudo dnf install -y spotify-client
+elif [[ $spoty = n ]]; then
+  echo "OK"
+fi
 
 # Bash-it setup
 echo "Bash-it install and configuration"
