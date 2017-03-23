@@ -201,8 +201,9 @@ case $CODEED in
         apm install file-icons language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk spacegray-light-neue-ui wombat-dark-syntax
         ;;
     vscode)
-        curl -o $HOME/Downloads/code.x86_64.rpm -L https://go.microsoft.com/fwlink/?LinkID=760867
-        sudo dnf install -y $HOME/Downloads/code.x86_64.rpm
+        sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+        sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+        sudo dnf install -y code
         ;;
     none)
         echo "None selected, use Vim"
