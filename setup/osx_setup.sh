@@ -219,21 +219,36 @@ pip install git+git://github.com/Lokaltog/powerline
 pip install psutil
 
 # Install OpenStack clients
-pip install python-openstackclient
-pip install python-neutronclient
-pip install python-heatclient
+#pip install python-openstackclient
+#pip install python-neutronclient
+#pip install python-heatclient
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-brew cask install eclipe-ide google-chrome firefox alfred transmission filezilla cyberduck github-desktop
+brew cask install google-chrome firefox alfred transmission filezilla cyberduck github-desktop
 
+# Install text editor
 # Install Atom
-echo "Installing Atom"
-brew cask install atom
+echo "Installing Editor."
+printf "Which code editor do you prefer, atom, vscode or none of them?"
+read CODEED
 
-# Install atom packages
-apm install language-powershell language-terraform language-puppet file-icons native-ui idle-theme github-syntax language-awk autocomplete-awk dash
-brew install homebrew/completions/apm-bash-completion
+case $CODEED in
+     atom)
+        echo "Installing Atom"
+        brew cask install atom
+        echo "Installing Atom packages"
+        apm install language-powershell language-terraform language-puppet file-icons native-ui idle-theme github-syntax language-awk autocomplete-awk dash
+        brew install homebrew/completions/apm-bash-completion
+        ;;
+    vscode)
+        echo "Installing Visual Studio Code"
+        brew cask install visual-studio-code
+        ;;
+    none)
+        echo "None selected, use Vim"
+        ;;
+esac
 
 # Install additional fonts
 echo "Installing additional fonts with Homebrew"
@@ -252,13 +267,13 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ## Dotfiles setup
 
 # Configure IRSSI
-echo "irssi configuration"
-mkdir -p $HOME/.irssi/scripts/autorun
-curl -o $HOME/.irssi/scripts/autorun/nicklist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/nicklist.pl
-curl -o $HOME/.irssi/scripts/autorun/adv_windowlist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/adv_windowlist.pl
-curl -o $HOME/.irssi/scripts/autorun/hilightwin.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/hilightwin.pl
-curl -o $HOME/.irssi/weed.theme https://raw.githubusercontent.com/ronilaukkarinen/weed/master/weed.theme
-ln -s $dotfiles/irssi/config $HOME/.irssi/config
+# echo "irssi configuration"
+# mkdir -p $HOME/.irssi/scripts/autorun
+# curl -o $HOME/.irssi/scripts/autorun/nicklist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/nicklist.pl
+# curl -o $HOME/.irssi/scripts/autorun/adv_windowlist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/adv_windowlist.pl
+# curl -o $HOME/.irssi/scripts/autorun/hilightwin.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/hilightwin.pl
+# curl -o $HOME/.irssi/weed.theme https://raw.githubusercontent.com/ronilaukkarinen/weed/master/weed.theme
+# ln -s $dotfiles/irssi/config $HOME/.irssi/config
 
 echo ".dotfiles setup"
 mkdir -p $HOME/.vim/colors
