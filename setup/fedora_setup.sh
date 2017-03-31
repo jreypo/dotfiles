@@ -128,9 +128,7 @@ sudo dnf install -y gtk-murrine-engine
 
 # Install Fedy
 echo "Fedy installation"
-curl -o $HOME/Downloads/fedy-installer http://folkswithhats.org/fedy-installer
-chmod +x $HOME/Downloads/fedy-installer
-sudo $HOME/Downloads/fedy-installer
+curl https://www.folkswithhats.org/installer | sudo bash
 read -p "Launch Fedy, make the appropiate changes and press any key to continue the setup..."
 
 # Install better fonts
