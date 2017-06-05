@@ -3,8 +3,10 @@
   email = juanmanuel.reyportal@gmail.com
 
 [core]
-  excludesfile = /Users/jrey/.gitignore_global
-  editor = atom --wait
+  excludesfile = ~/.gitignore_global
+  editor = code --wait
+  eol = lf
+  autocrlf = input
 
 [push]
   default = simple
@@ -72,6 +74,7 @@
 
 [pull]
 	rebase = true
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
