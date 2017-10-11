@@ -16,3 +16,15 @@ alias j='jobs -l'
 alias cls=clear
 alias docker='sudo docker'
 alias virsh='sudo virsh'
+
+# kubectl aliases
+alias deployments='kubectl get deployment'
+alias k='kubectl'
+alias kd='kubectl get nodes'
+alias kdd='kubectl describe deployment'
+alias kdp='kubectl describe pod'
+alias kds='kubectl describe service'
+alias klogs='kubectl logs'
+alias ksvc='kubectl get svc'
+alias pods='kubectl get pods'
+alias nodes='kubectl get node'
