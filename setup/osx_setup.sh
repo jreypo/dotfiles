@@ -218,10 +218,9 @@ pip install --upgrade pip
 pip install git+git://github.com/Lokaltog/powerline
 pip install psutil
 
-# Install OpenStack clients
-#pip install python-openstackclient
-#pip install python-neutronclient
-#pip install python-heatclient
+# Install Azure CLI
+echo "Installing Azure CLI"
+brew install azure-cli
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
