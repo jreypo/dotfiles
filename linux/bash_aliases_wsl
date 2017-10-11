@@ -4,7 +4,26 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 alias h=history
-alias lports='NETSTAT.EXE -an | grep LISTENING'
+alias lports='NETSTAT.EXE -p TCP -an | grep LISTENING'
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
+alias cdhome='cd /mnt/c/Users/jurey'
+alias foxit='"/mnt/c/Program Files (x86)/FOXIT SOFTWARE/FOXIT READER/FoxitReader.exe"'
+alias procexp='cmd.exe /C procexp64.bat'
+alias npm='/usr/bin/npm'
+alias start='cmd.exe /C start'
+alias code=code-insiders
+
+# kubectl aliases
+alias deployments='kubectl get deployment'
+alias k='kubectl'
+alias kd='kubectl get nodes'
+alias kdd='kubectl describe deployment'
+alias kdp='kubectl describe pod'
+alias kds='kubectl describe service'
+alias klogs='kubectl logs'
+alias ksvc='kubectl get svc'
+alias pods='kubectl get pods'
+alias nodes='kubectl get node'
+
