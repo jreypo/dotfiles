@@ -26,4 +26,5 @@ alias klogs='kubectl logs'
 alias ksvc='kubectl get svc'
 alias pods='kubectl get pods'
 alias nodes='kubectl get node'
-
+alias contexts='kubectl config get-contexts'
+alias context='kubectl config use-context'
