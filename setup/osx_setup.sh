@@ -72,6 +72,10 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
+# Save screenshots to Pictures folder
+mkdir -p ${HOME}/Screenshots
+defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
+
 ## Finder configuration
 echo "Configuring Finder"
 
