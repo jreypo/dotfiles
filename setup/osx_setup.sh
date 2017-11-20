@@ -57,7 +57,7 @@ defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreS
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
-# Show scrollbars  only when scrolling
+# Show scrollbars only when scrolling
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
 # Expand save panel by default
@@ -75,6 +75,10 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Save screenshots to Pictures folder
 mkdir -p ${HOME}/Screenshots
 defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 ## Finder configuration
 echo "Configuring Finder"
