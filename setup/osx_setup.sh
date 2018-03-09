@@ -16,7 +16,7 @@
 echo ""
 echo "###############################################################"
 echo "#                                                             #"
-echo "#            Dotfiles installation script for OSX             #"
+echo "#            Dotfiles installation script for macOS           #"
 echo "#                  Written by Juan Manuel Rey                 #"
 echo "#               Github: https://github.com/jreypo             #"
 echo "#                 Blog: http://blog.jreypo.io                 #"
