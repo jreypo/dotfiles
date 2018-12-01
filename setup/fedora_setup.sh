@@ -34,7 +34,11 @@ sudo sed -i s/SELINUX\=enforcing/SELINUX\=permissive/ /etc/selinux/config
 echo "Updating the system"
 sudo dnf -y update
 
-# Install RPM Fustion
+# Install RPM Fusion and Fedora Third Party repositories
+echo "Enabling Fedora Third Party repos"
+sudo dnf install -y fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
+
 echo "Enabling RPM Fusion repository"
 sudo dnf install -y --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
@@ -167,24 +171,19 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9
 
 # Install Google Chrome
 echo "Installing Google Chrome"
-sudo curl -o $HOME/Downloads/linux_signing_key.pub https://dl-ssl.google.com/linux/linux_signing_key.pub
-sudo rpm --import $HOME/Downloads/linux_signing_key.pub
-sudo sh -c 'echo "[google-chrome]
-name=Google Chrome 64-bit
-baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64" >> /etc/yum.repos.d/google-chrome.repo'
 sudo dnf install -y google-chrome-stable
 
 # Install Slack
-echo "Slack installation"
-sudo sh -c 'echo "[slack]
-name=slack
-baseurl=https://packagecloud.io/slacktechnologies/slack/fedora/21/x86_64
-enabled=1
-gpgcheck=1
-gpgkey=https://packagecloud.io/gpg.key
-sslverify=1
-sslcacert=/etc/pki/tls/certs/ca-bundle.crt" >> /etc/yum.repos.d/slack.repo'
-sudo dnf install -y --nogpgcheck slack
+#echo "Slack installation"
+#sudo sh -c 'echo "[slack]
+#name=slack
+#baseurl=https://packagecloud.io/slacktechnologies/slack/fedora/21/x86_64
+#enabled=1
+#gpgcheck=1
+#gpgkey=https://packagecloud.io/gpg.key
+#sslverify=1
+#sslcacert=/etc/pki/tls/certs/ca-bundle.crt" >> /etc/yum.repos.d/slack.repo'
+#sudo dnf install -y --nogpgcheck slack
 
 # Install Atom
 echo "Installing Editor."
@@ -209,14 +208,14 @@ case $CODEED in
 esac
 
 # Install Spotify desktop client
-echo "Spotify installation"
-printf "Do you want to install Spotify Client? [yn]" spoty
-if [[ $spoty = y ]]; then
-  sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-  sudo dnf install -y spotify-client
-elif [[ $spoty = n ]]; then
-  echo "OK"
-fi
+#echo "Spotify installation"
+#printf "Do you want to install Spotify Client? [yn]" spoty
+#if [[ $spoty = y ]]; then
+#  sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+#  sudo dnf install -y spotify-client
+#elif [[ $spoty = n ]]; then
+#  echo "OK"
+#fi
 
 # Bash-it setup
 echo "Bash-it install and configuration"
