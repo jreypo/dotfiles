@@ -125,6 +125,12 @@ sudo systemctl enable docker.service
 echo "Installing Kubernetes clients"
 sudo dnf install -y kubernetes-client
 
+# Install Azure CLI
+echo "Installing Azure CLI"
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+sudo dnf install -y azure-cli
+
 ## Intall themes and eye-candy
 
 # Installing theme engines
