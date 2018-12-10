@@ -298,8 +298,8 @@ $HOME/.bash_it/install.sh --interactive
 
 mkdir -p $HOME/.bash_it/custom/aliases
 mkdir -p $HOME/.bash_it/custom/themes/modern-jmr
-cp $dotfiles/bash_it/custom.aliases.bash $HOME/.bash_it/custom/custom.aliases.bash
-cp $dotfiles/bash_it/modern-jmr.theme.bash $HOME/.bash_it/custom/themes/modern-jmr/modern-jmr.theme.bash
+ln -s $dotfiles/bash_it/custom.aliases.bash $HOME/.bash_it/custom/custom.aliases.bash
+ln -s $dotfiles/bash_it/modern-jmr.theme.bash $HOME/.bash_it/custom/themes/modern-jmr/modern-jmr.theme.bash
 
 cat >> $HOME/.bash_profile << EOF
 export LC_ALL=en_US.UTF-8
