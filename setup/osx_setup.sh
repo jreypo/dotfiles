@@ -214,11 +214,14 @@ brew doctor
 read -p "Fix brew doctor issues and press any key when ready..."
 # Install general packages
 brew update
-brew install asciinema htop coreutils wget xz watch screenfetch dos2unix lftp pandoc tmux reattach-to-user-namespace openshift-cli ssh-copy-id kubectl unrar 
-#brew install weechat --with-aspell --with-curl --with-python --with-perl --with-ruby --with-lua --with-guile
+brew install asciinema htop coreutils wget xz watch screenfetch dos2unix lftp pandoc tmux reattach-to-user-namespace ssh-copy-id unrar 
 
 # Install dev and sysadmin tools
 brew install git python ansible packer httpie nmap git-review terraform
+
+# Install Kubernetes utilities
+echo "Installing Kubernetes utilities"
+brew install kubectl openshift-cli kubectx kubernetes-helm
 
 # Install Powerline
 echo "Installing Powerline"
