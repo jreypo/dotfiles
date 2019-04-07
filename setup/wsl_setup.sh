@@ -24,7 +24,6 @@ echo ""
 # Configrue hostname
 read -p "Please enter the hostname for this computer: " computername
 sudo hostname $computername
-sudo echo $computername >> /etc/hostname
 
 # Update the system
 echo "Updating the system"
@@ -104,7 +103,7 @@ ln -s $dotfiles/git/gitignore_global $HOME/.gitignore_global
 rm -f ~/.bashrc
 ln -s $dotfiles/linux/bashrc_wsl $HOME/.bashrc
 ln -s $dotfiles/linux/bash_aliases_wsl $HOME/.bash_aliases
-cp -f $dotfiles/linux/wsl.conf /etc/wsl.conf
+sudo cp -f $dotfiles/linux/wsl.conf /etc/wsl.conf
 
 ## Configuration done
 echo "DONE!"

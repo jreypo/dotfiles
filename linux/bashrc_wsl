@@ -125,3 +125,4 @@ source <(/home/jurey/bin/kubectl completion bash)
 
 complete -C /home/jurey/bin/terraform terraform
 source <(aks-engine completion)
+umask 022
