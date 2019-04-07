@@ -98,7 +98,7 @@ echo ".dotfiles setup"
 mkdir -p $HOME/.vim/colors
 cp $dotfiles/vim/wombat256mod.vim $HOME/.vim/colors
 ln -s $dotfiles/vim/vimrc_ubuntu $HOME/.vimrc
-ln -s $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+ln -s $dotfiles/tmux/tmux_wsl.conf $HOME/.tmux.conf
 ln -s $dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $dotfiles/git/gitignore_global $HOME/.gitignore_global
 rm -f ~/.bashrc
