@@ -13,7 +13,7 @@ alias foxit='"/c/Program Files (x86)/FOXIT SOFTWARE/FOXIT READER/FoxitReader.exe
 alias procexp='cmd.exe /C procexp64.exe'
 alias npm='/usr/bin/npm'
 alias start='cmd.exe /C start'
-alias code=code-insiders
+#alias code=code-insiders
 
 # kubectl aliases
 alias deployments='kubectl get deployment'
