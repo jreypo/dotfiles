@@ -138,7 +138,8 @@ sudo dnf install -y gtk-murrine-engine
 
 # Install Fedy
 echo "Fedy installation"
-curl https://www.folkswithhats.org/installer | sudo bash
+sudo dnf install -y https://dl.folkswithhats.org/fedora/$(rpm -E %fedora)/RPMS/fedy-release.rpm
+sudo dnf install -y fedy
 read -p "Launch Fedy, make the appropiate changes and press any key to continue the setup..."
 
 # Install better fonts
