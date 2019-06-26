@@ -123,6 +123,9 @@ export DOCKER_HOST='tcp://0.0.0.0:2375'
 source <(/home/jurey/bin/kubectl completion bash)
 #source <(/usr/local/bin/helm completion bash)
 
+# Azure Dev Spaces
+source /etc/bash_completion.d/azds
+
 complete -C /home/jurey/bin/terraform terraform
 source <(aks-engine completion)
 umask 022
