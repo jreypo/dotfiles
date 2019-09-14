@@ -15,7 +15,7 @@ alias npm='/usr/bin/npm'
 alias start='cmd.exe /C start'
 alias ktx=kubectx
 #alias code=code-insiders
-cls=clear
+alias cls=clear
 
 # kubectl aliases
 alias deployments='kubectl get deployment'
