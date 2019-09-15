@@ -121,7 +121,7 @@ export GOPATH=/c/projects/go
 
 export PATH=$PATH:/home/jurey/bin:$GOPATH/bin
 #export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-export DOCKER_HOST='tcp://0.0.0.0:2375'
+#export DOCKER_HOST='tcp://0.0.0.0:2375'
 
 source <(/usr/local/bin/kubectl completion bash)
 #source <(/usr/local/bin/helm completion bash)
