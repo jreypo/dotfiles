@@ -233,6 +233,18 @@ pip install psutil
 echo "Installing Azure CLI"
 brew install azure-cli
 
+# Install cloud native dev tools
+echo "Installing Cloud Native dev tools"
+# kubectx
+brew install kubectx
+# Dive
+brew install dive
+# draft.sh
+brew install azure/draft/draft
+# porter.sh
+curl https://cdn.deislabs.io/porter/latest/install-mac.sh | bash
+
+
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
 brew cask install google-chrome firefox alfred transmission filezilla cyberduck transmission
