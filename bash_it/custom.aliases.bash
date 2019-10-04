@@ -13,6 +13,7 @@ alias j='jobs -l'
 alias fusion='open -a "VMware Fusion"'
 alias open='reattach-to-user-namespace open'
 alias vboxmanage='VBoxManage'
+alias ktx=kubectx
 
 # kubectl aliases
 alias deployments='kubectl get deployment'
