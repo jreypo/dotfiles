@@ -9,12 +9,10 @@ alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
 alias cdhome='cd /c/Users/jurey'
-alias foxit='"/c/Program Files (x86)/FOXIT SOFTWARE/FOXIT READER/FoxitReader.exe"'
-alias procexp='cmd.exe /C procexp64.exe'
+#alias procexp='cmd.exe /C procexp64.exe'
 alias npm='/usr/bin/npm'
 alias start='cmd.exe /C start'
 alias ktx=kubectx
-#alias code=code-insiders
 alias cls=clear
 
 # kubectl aliases
