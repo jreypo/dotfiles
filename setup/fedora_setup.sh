@@ -59,7 +59,6 @@ sudo dnf install -y vlc
 # Install packages
 echo "General packages installation"
 sudo dnf install -y gnome-shell-extension-user-theme.noarch \
-     gnome-shell-extension-alternate-tab \
      gnome-shell-extension-openweather.noarch \
      gnome-shell-extension-auto-move-windows \
      gnome-shell-extension-background-logo \
