@@ -81,7 +81,6 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      dstat \
      nmap \
      wireshark.x86_64 \
-     wireshark-gnome \
      libvirt-wireshark \
      glances \
      transmission \
