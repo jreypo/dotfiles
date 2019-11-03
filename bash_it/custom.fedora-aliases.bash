@@ -14,7 +14,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias h='history'
 alias j='jobs -l'
 alias cls=clear
-alias docker='sudo docker'
 alias virsh='sudo virsh'
 
 # kubectl aliases
