@@ -1,6 +1,7 @@
 # Importing Modules #
 
 Import-Module posh-git
+Import-Module DockerCompletion
 
 #Prompt Function
 
