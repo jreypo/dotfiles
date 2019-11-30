@@ -235,8 +235,6 @@ brew install azure-cli
 
 # Install cloud native dev tools
 echo "Installing Cloud Native dev tools"
-# kubectx
-brew install kubectx
 # Dive
 brew install dive
 # draft.sh
@@ -251,26 +249,8 @@ brew cask install google-chrome firefox alfred transmission filezilla cyberduck 
 
 # Install text editor
 # Install Atom
-echo "Installing Editor."
-printf "Which code editor do you prefer, atom, vscode or none of them?"
-read CODEED
-
-case $CODEED in
-     atom)
-        echo "Installing Atom"
-        brew cask install atom
-        echo "Installing Atom packages"
-        apm install language-powershell language-terraform language-puppet file-icons native-ui idle-theme github-syntax language-awk autocomplete-awk dash
-        brew install homebrew/completions/apm-bash-completion
-        ;;
-    vscode)
-        echo "Installing Visual Studio Code"
-        brew cask install visual-studio-code
-        ;;
-    none)
-        echo "None selected, use Vim"
-        ;;
-esac
+echo "Installing Visual Studio Code"
+brew cask install visual-studio-code
 
 # Install additional fonts
 echo "Installing additional fonts with Homebrew"
