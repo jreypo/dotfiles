@@ -1,12 +1,10 @@
+alias ls='ls -aF --color=auto'
 alias bdf='df -h'
 alias j='jobs -l'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 alias h=history
-alias ..='cd ..'         # Go up one directory
-alias ...='cd ../..'     # Go up two directories
-alias ....='cd ../../..' # Go up three directories
 alias ktx=kubectx
 alias cls=clear
 
