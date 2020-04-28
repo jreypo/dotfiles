@@ -21,65 +21,33 @@ echo "#                                                             #"
 echo "###############################################################"
 echo ""
 
-# Configrue hostname
-read -p "Please enter the hostname for this computer: " computername
-sudo hostname $computername
-
 # Update the system
 echo "Updating the system"
 sudo apt-get update && sudo apt-get upgrade -y
 
 # Install software
 echo "Installing software"
-sudo apt-get install -y ruby \
-     ruby-dev \
-     curl \
+sudo apt-get install -y unzip \
      software-properties-common \
      apt-transport-https \
      build-essential \
      vim \
-     lsb_release \
-     gpg \
      git-review \
-     python-pip \
-     tmux 
-
-# Install Powerline
-echo "Installing Powerline"
-sudo pip install git+git://github.com/Lokaltog/powerline
+     python3-pip
 
 # Install Azure CLI
 echo "Installing Azure CLI"
-curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
-    gpg --dearmor | \
-    sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
-
-AZ_REPO=$(lsb_release -cs)
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
-    sudo tee /etc/apt/sources.list.d/azure-cli.list
-
-sudo apt-get update
-sudo apt-get install azure-cli -y
-
-# Install Docker
-echo "Installing Docker client"
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) \
-    stable"
-
-sudo apt-get update
-sudo apt-get install -y docker-ce 
-
-sudo usermod -aG docker $USER
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # Install Service Fabric Client
 echo "Installing Service Fabric client"
 sudo apt-get install python3
 sudo apt-get install python3-pip
 pip3 install sfctl
+
+# Install Powerline
+echo "Installing Powerline"
+sudo pip3 install powerline-status
 
 # Install aditional software
 echo "Installing more dev software"
@@ -96,7 +64,7 @@ sudo mv cfssljson_linux-amd64 /usr/local/bin/cfssljson
 echo ".dotfiles setup"
 mkdir -p $HOME/.vim/colors
 cp $dotfiles/vim/wombat256mod.vim $HOME/.vim/colors
-ln -s $dotfiles/vim/vimrc_ubuntu $HOME/.vimrc
+ln -s $dotfiles/vim/vimrc_wsl $HOME/.vimrc
 ln -s $dotfiles/tmux/tmux_wsl.conf $HOME/.tmux.conf
 ln -s $dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $dotfiles/git/gitignore_global $HOME/.gitignore_global
