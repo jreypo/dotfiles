@@ -7,6 +7,9 @@ alias cp='cp -i'
 alias h=history
 alias ktx=kubectx
 alias cls=clear
+alias ..='cd ..'         # Go up one directory
+alias ...='cd ../..'     # Go up two directories
+alias ....='cd ../../..' # Go up three directories
 
 # kubectl aliases
 alias deployments='kubectl get deployment'
