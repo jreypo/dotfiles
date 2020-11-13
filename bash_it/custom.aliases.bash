@@ -15,6 +15,7 @@ alias open='reattach-to-user-namespace open'
 alias vboxmanage='VBoxManage'
 alias ktx=kubectx
 alias python=/usr/local/bin/python3
+alias pip=/usr/local/bin/pip3
 
 # kubectl aliases
 alias deployments='kubectl get deployment'
