@@ -90,8 +90,8 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      dconf-editor
 
 # Install Vagrant
-echo "Installing Vagrant"
-sudo dnf install -y vagrant
+# echo "Installing Vagrant"
+# sudo dnf install -y vagrant
 
 # Install libvirt
 echo "Install Virtualization"
@@ -114,14 +114,14 @@ elif [[ $answer = n ]]; then
 fi
 
 # Install Docker
-echo "Installing Docker"
-sudo dnf install -y docker
-sudo systemctl start docker.service
-sudo systemctl enable docker.service
+# echo "Installing Docker"
+# sudo dnf install -y docker
+# sudo systemctl start docker.service
+# sudo systemctl enable docker.service
 
 # Install OpenStack client
-echo "Installing Kubernetes clients"
-sudo dnf install -y kubernetes-client
+# echo "Installing Kubernetes clients"
+# sudo dnf install -y kubernetes-client
 
 # Install Azure CLI
 echo "Installing Azure CLI"
@@ -135,25 +135,10 @@ sudo dnf install -y azure-cli
 sudo dnf install -y gtk-murrine-engine
 
 # Install Fedy
-echo "Fedy installation"
-sudo dnf install -y https://dl.folkswithhats.org/fedora/$(rpm -E %fedora)/RPMS/fedy-release.rpm
-sudo dnf install -y fedy
-read -p "Launch Fedy, make the appropiate changes and press any key to continue the setup..."
-
-# Install better fonts
-read -p "Do you want to install Infinality Ultimate font rendering? [yn]" answer
-if [[ $answer = y ]]; then
-  echo "Infinality Ultimate setup"
-  sudo dnf install -y freetype-freeworld
-  sudo dnf install -y http://rpm.danielrenninghoff.com/infinality/fedora/$(rpm -E %fedora)/noarch/infinality-ultimate-repo-$(rpm -E %fedora)-1.noarch.rpm
-  sudo dnf install --allowerasing -y cairo-infinality-ultimate \
-      fontconfig-infinality-ultimate \
-      freetype-infinality-ultimate
-  sudo cp /usr/share/doc/freetype-infinality-ultimate/infinality-settings.sh /etc/X11/xinit/xinitrc.d/infinality-settings.sh
-#  sudo echo "export INFINALITY_FT="osx"" >> /etc/X11/xinit/xinitrc.d/infinality-settings.sh
-elif [[ $answer = n ]]; then
-  echo "Infinality Ultimate not installed. Use Fedy to get a better font rendering."
-fi
+# echo "Fedy installation"
+# sudo dnf install -y https://dl.folkswithhats.org/fedora/$(rpm -E %fedora)/RPMS/fedy-release.rpm
+# sudo dnf install -y fedy
+# read -p "Launch Fedy, make the appropiate changes and press any key to continue the setup..."
 
 echo "Install Hack font"
 sudo dnf copr enable -y heliocastro/hack-fonts
@@ -191,36 +176,12 @@ sudo dnf install -y google-chrome-stable
 #sudo dnf install -y --nogpgcheck slack
 
 # Install Atom
-echo "Installing Editor."
-printf "Which code editor do you prefer, atom, vscode or none of them?"
-read CODEED
+echo "Installing Virtual Studio Code."
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
-case $CODEED in
-     atom)
-        curl -o $HOME/Downloads/atom.x86_64.rpm -L https://atom.io/download/rpm
-        sudo dnf install -y $HOME/Downloads/atom.x86_64.rpm
-        echo "Installing Atom packages"
-        apm install file-icons language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk spacegray-light-neue-ui wombat-dark-syntax
-        ;;
-    vscode)
-        sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-        sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-        sudo dnf install -y code
-        ;;
-    none)
-        echo "None selected, use Vim"
-        ;;
-esac
-
-# Install Spotify desktop client
-#echo "Spotify installation"
-#printf "Do you want to install Spotify Client? [yn]" spoty
-#if [[ $spoty = y ]]; then
-#  sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-#  sudo dnf install -y spotify-client
-#elif [[ $spoty = n ]]; then
-#  echo "OK"
-#fi
+sudo dnf check-update
+sudo dnf install -y code
 
 # Bash-it setup
 echo "Bash-it install and configuration"
