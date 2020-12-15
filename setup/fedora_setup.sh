@@ -12,7 +12,7 @@ dotfiles=$HOME/.dotfiles
 echo ""
 echo "###############################################################"
 echo "#                                                             #"
-echo "#            Dotfiles installation script for Fedora          #"
+echo "#     Dotfiles installation script for Fedora  Workstation    #"
 echo "#                  Written by Juan Manuel Rey                 #"
 echo "#               Github: https://github.com/jreypo             #"
 echo "#                 Blog: http://blog.jreypo.io                 #"
@@ -90,8 +90,8 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      dconf-editor
 
 # Install Vagrant
-# echo "Installing Vagrant"
-# sudo dnf install -y vagrant
+echo "Installing Vagrant"
+sudo dnf install -y vagrant
 
 # Install libvirt
 echo "Install Virtualization"
@@ -113,16 +113,6 @@ elif [[ $answer = n ]]; then
   echo "Install your favorite Virtualization software through its supported method"
 fi
 
-# Install Docker
-# echo "Installing Docker"
-# sudo dnf install -y docker
-# sudo systemctl start docker.service
-# sudo systemctl enable docker.service
-
-# Install OpenStack client
-# echo "Installing Kubernetes clients"
-# sudo dnf install -y kubernetes-client
-
 # Install Azure CLI
 echo "Installing Azure CLI"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -133,12 +123,6 @@ sudo dnf install -y azure-cli
 
 # Installing theme engines
 sudo dnf install -y gtk-murrine-engine
-
-# Install Fedy
-# echo "Fedy installation"
-# sudo dnf install -y https://dl.folkswithhats.org/fedora/$(rpm -E %fedora)/RPMS/fedy-release.rpm
-# sudo dnf install -y fedy
-# read -p "Launch Fedy, make the appropiate changes and press any key to continue the setup..."
 
 echo "Install Hack font"
 sudo dnf copr enable -y heliocastro/hack-fonts
@@ -158,22 +142,27 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>6
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
 
-# Install Google Chrome
-echo "Installing Google Chrome"
-sudo dnf install -y google-chrome-stable
+# Install Brave
+echo "Installing Brave Browser"
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+sudo dnf install brave-browser
 
-# Install Slack
-#echo "Slack installation"
-#sudo sh -c 'echo "[slack]
-#name=slack
-#baseurl=https://packagecloud.io/slacktechnologies/slack/fedora/21/x86_64
-#enabled=1
-#gpgcheck=1
-#gpgkey=https://packagecloud.io/gpg.key
-#sslverify=1
-#sslcacert=/etc/pki/tls/certs/ca-bundle.crt" >> /etc/yum.repos.d/slack.repo'
-#sudo dnf install -y --nogpgcheck slack
+# Enable FlatHub
+echo "Enablig FlatHub to install FlatPak Apps"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# install Spotify
+echo "Instaling Spotify"
+flatpak install -y flathub com.spotify.Client
+
+echo "Installing Slack"
+flatpak install -y flathub com.slack.Slack
+
+echo "Installing Telegram"
+flatpak install -y flathub org.telegram.desktop
 
 # Install Atom
 echo "Installing Virtual Studio Code."
