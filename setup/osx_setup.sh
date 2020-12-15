@@ -221,7 +221,7 @@ brew install git python ansible packer httpie nmap git-review terraform
 
 # Install Kubernetes utilities
 echo "Installing Kubernetes utilities"
-brew install kubectl openshift-cli kubectx kubernetes-helm
+brew install kubectl kubectx kubernetes-helm
 
 # Install Powerline
 echo "Installing Powerline"
@@ -237,15 +237,10 @@ brew install azure-cli
 echo "Installing Cloud Native dev tools"
 # Dive
 brew install dive
-# draft.sh
-brew install azure/draft/draft
-# porter.sh
-curl https://cdn.deislabs.io/porter/latest/install-mac.sh | bash
-
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-brew cask install google-chrome firefox alfred transmission filezilla cyberduck transmission
+brew cask install brave-browser firefox alfred transmission filezilla cyberduck transmission
 
 # Install text editor
 # Install Atom
@@ -267,15 +262,6 @@ open "${dotfiles}/iterm/ahawkins.itermcolors"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ## Dotfiles setup
-
-# Configure IRSSI
-# echo "irssi configuration"
-# mkdir -p $HOME/.irssi/scripts/autorun
-# curl -o $HOME/.irssi/scripts/autorun/nicklist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/nicklist.pl
-# curl -o $HOME/.irssi/scripts/autorun/adv_windowlist.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/adv_windowlist.pl
-# curl -o $HOME/.irssi/scripts/autorun/hilightwin.pl https://raw.githubusercontent.com/irssi/scripts.irssi.org/gh-pages/scripts/hilightwin.pl
-# curl -o $HOME/.irssi/weed.theme https://raw.githubusercontent.com/ronilaukkarinen/weed/master/weed.theme
-# ln -s $dotfiles/irssi/config $HOME/.irssi/config
 
 echo ".dotfiles setup"
 mkdir -p $HOME/.vim/colors
