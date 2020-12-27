@@ -26,11 +26,11 @@ sudo hostnamectl set-hostname $computername
 
 # Update the system
 echo "Updating the system"
-sudo apt-get update && sudo apt-get upgrade -y
+sudo apt update && sudo apt upgrade -y
 
 # Install software
 echo "Installing software"
-sudo apt-get install -y chrome-gnome-shell \
+sudo apt-get install -y \
      vlc \
      ruby
      ruby-dev \
@@ -40,39 +40,25 @@ sudo apt-get install -y chrome-gnome-shell \
      vim \
      ubuntu-restricted-addons \
      ubuntu-restricted-extras \
-     git-review \
-     python-pip \
-     tmux \
-     terminator
-
-# Install GNOME GTK and icon themes
-echo "Installing Numix themes"
-sudo add-apt-repository -y ppa:numix/ppa
-sudo apt-get update
-sudo apt-get install -y numix-gtk-theme numix-icon-theme numix-icon-theme-square numix-icon-theme-circle numix-folders 
-
-echo "Installing ARC themes"
-# sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
-sudo apt-get update
-sudo apt-get install -y arc-theme
-
-#echo "Installing ARC-flatabolous themes"
-#sudo add-apt-repository -y ppa:noobslab/themes
-#sudo apt-get update
-#sudo apt-get install arc-flatabulous-theme
-
-echo "Installing Paper themes"
-sudo add-apt-repository -y ppa:snwh/pulp
-sudo apt-get update
-sudo apt-get install -y paper-gtk-theme paper-icon-theme paper-cursor-theme
-
-echo "Installing more themes"
-sudo apt-get install -y ultra-flat-theme ultra-flat-icons
-sudo git clone https://github.com/EmptyStackExn/mono-dark-flattr-icons.git /usr/share/icons/mono-dark-flattr-icons
+     tmux 
 
 # Install Docker
 echo "Installing Docker"
-sudo apt-get install -y docker.io
+sudo apt-get remove -y docker docker-engine docker.io containerd runc
+sudo apt update
+sudo apt install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $(whoami)
 
 # Install Powerline
@@ -80,33 +66,14 @@ echo "Installing Powerline"
 sudo pip install git+git://github.com/Lokaltog/powerline
 
 # Install Atom
-echo "Installing Editor."
-printf "Which code editor do you prefer, atom, vscode or none of them?"
-read CODEED
+echo "Installing VS Code"
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt install -y apt-transport-https
+sudo apt update
+sudo apt install -y code
 
-case $CODEED in
-     atom)
-        curl -o $HOME/Downloads/atom-amd64.deb -L https://atom.io/download/deb
-        sudo dpkg -i $HOME/Downloads/atom-amd64.deb
-        sudo apt-get install -f
-        echo "Installing Atom packages"
-        apm install file-icons language-terraform language-puppet idle-theme github-syntax language-awk autocomplete-awk spacegray-light-neue-ui wombat-dark-syntax
-        ;;
-    vscode)
-        curl -o $HOME/Downloads/code-amd64.deb -L https://go.microsoft.com/fwlink/?LinkID=760868
-        sudo dpkg -i $HOME/Downloads/code-amd64.deb
-        sudo apt-get install -f
-        ;;
-    none)
-        echo "None selected, use Vim"
-        ;;
-esac
-
-# Install Consolas patched font for Powerline
-echo "Installing Consolas patched font"
-git clone https://github.com/runsisi/consolas-font-for-powerline.git $HOME/Downloads/consolas-font-for-powerline
-mkdir $HOME/.fonts
-cp $HOME/Downloads/consolas-font-for-powerline/*.ttf $HOME/.fonts
 
 # Configure GNOME
 echo "Configuring GNOME"
@@ -123,18 +90,6 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 gsettings set org.gnome.shell.window-switcher current-workspace-only false
-
-# Install Spotify desktop client
-echo "Spotify installation"
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
-sudo apt-get install spotify-client
-
-# Install Google Chrome
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-sudo apt-get update
-sudo apt-get install -y google-chrome-stable
 
 # Dotfiles setup
 echo ".dotfiles setup"
