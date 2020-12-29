@@ -62,6 +62,7 @@ sudo mv cfssljson_linux-amd64 /usr/local/bin/cfssljson
 
 # Dotfiles setup
 echo ".dotfiles setup"
+mkdir -p $HOME/projects/go
 mkdir -p $HOME/.vim/colors
 cp $dotfiles/vim/wombat256mod.vim $HOME/.vim/colors
 ln -s $dotfiles/vim/vimrc_wsl $HOME/.vimrc
