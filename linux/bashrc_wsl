@@ -123,6 +123,8 @@ export PATH=$PATH:/home/$USER/bin:$GOPATH/bin:$GOROOT/bin:/home/$USER/.kubectx
 
 # Bash completion functions
 if [ -f /home/$USER/bin/kubectl ]; then
+   source <(/home/$USER/bin/kubectl completion bash)
+elif [ -f /usr/local/bin/kubectl ]; then
    source <(/usr/local/bin/kubectl completion bash)
 fi
 
