@@ -10,7 +10,6 @@ alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
 alias cdhome='cd /c/Users/jurey'
 #alias procexp='cmd.exe /C procexp64.exe'
-alias npm='/usr/bin/npm'
 alias start='cmd.exe /C start'
 alias ktx=kubectx
 alias cls=clear
