@@ -23,11 +23,11 @@ echo ""
 
 # Update the system
 echo "Updating the system"
-sudo apt-get update && sudo apt-get upgrade -y
+sudo apt update && sudo apt upgrade -y
 
 # Install software
 echo "Installing software"
-sudo apt-get install -y unzip \
+sudo apt install -y unzip \
      software-properties-common \
      apt-transport-https \
      build-essential \
@@ -41,8 +41,8 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # Install Service Fabric Client
 echo "Installing Service Fabric client"
-sudo apt-get install python3
-sudo apt-get install python3-pip
+sudo apt install python3
+sudo apt install python3-pip
 pip3 install sfctl
 
 # Install Powerline
