@@ -1,6 +1,7 @@
 # Importing Modules #
 
 Import-Module posh-git
+Import-Module oh-my-posh
 Import-Module DockerCompletion
 
 #Prompt Function
@@ -23,8 +24,8 @@ function prompt {
    write-host (shorten-path (pwd).Path) -NoNewline -ForegroundColor white
    Write-VcsStatus
    $global:LASTEXITCODE = $realLASTEXITCODE
-   write-host ']' -NoNewline -ForegroundColor gray
-   write-host ' %' -NoNewline
+   write-host ']' -ForegroundColor gray
+   write-host '%'-NoNewline
    return ' '
 }
 
@@ -52,4 +53,4 @@ Set-Alias -Name ll -Value Get-ChildItem
 Set-Alias -Name for	-Value ForEach-Object
 Set-Alias -Name packer -Value "C:\Program Files\Hashicorp\packer.exe"
 Set-Alias -Name terraform -Value "C:\Program Files\Hashicorp\terraform.exe"
-Set-Alias -Name cd -Value cddash -Option AllScope
+Set-Alias -Name .. -Value cd..
