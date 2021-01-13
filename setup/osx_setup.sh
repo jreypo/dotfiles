@@ -240,7 +240,7 @@ brew install dive
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-brew cask install firefox alfred filezilla cyberduck transmission
+brew cask install firefox alfred filezilla cyberduck transmission balenaetcher tunnelblick rectangle slack
 
 # Install text editor
 echo "Installing Visual Studio Code"
