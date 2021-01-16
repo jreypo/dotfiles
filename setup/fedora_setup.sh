@@ -37,7 +37,6 @@ sudo dnf -y update
 # Install RPM Fusion and Fedora Third Party repositories
 echo "Enabling Fedora Third Party repos"
 sudo dnf install -y fedora-workstation-repositories
-sudo dnf config-manager --set-enabled google-chrome
 
 echo "Enabling RPM Fusion repository"
 sudo dnf install -y --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -143,12 +142,6 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
-
-# Install Brave
-echo "Installing Brave Browser"
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-sudo dnf install brave-browser
 
 # Enable FlatHub
 echo "Enablig FlatHub to install FlatPak Apps"
