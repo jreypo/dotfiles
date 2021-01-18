@@ -89,7 +89,9 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      gconf-editor \
      dconf-editor \
      geary \ 
-     evolution-ews
+     evolution-ews \
+     feedreader \
+     yacreader
 
 # Install Vagrant
 echo "Installing Vagrant"
@@ -145,6 +147,15 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
+gsettings set org.gnome.shell.keybindings switch-to-application-1 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-2 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-3 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-4 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-5 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-6 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-7 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-8 "[]"
+gsettings set org.gnome.shell.keybindings switch-to-application-9 "[]"
 
 # Enable FlatHub
 echo "Enablig FlatHub to install FlatPak Apps"
@@ -160,6 +171,9 @@ flatpak install -y flathub com.slack.Slack
 echo "Installing Telegram"
 flatpak install -y flathub org.telegram.desktop
 
+echo "Installing Skype"
+flatpak install flathub com.skype.Client
+
 # Install Atom
 echo "Installing Virtual Studio Code."
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -167,6 +181,17 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 
 sudo dnf check-update
 sudo dnf install -y code
+
+# Install Microsoft Edge
+sudo cat <<EOF >> /etc/yum.repos.d/microsoft-edge-dev.repo
+[microsoft-edge-dev]
+name=microsoft-edge-dev
+baseurl=https://packages.microsoft.com/yumrepos/edge/
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+sudo dnf install -y microsoft-edge-dev
 
 # Bash-it setup
 echo "Bash-it install and configuration"
