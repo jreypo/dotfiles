@@ -63,6 +63,7 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      gnome-shell-extension-background-logo \
      gnome-tweak-tool \
      ruby \
+     fbreader \
      powerline \
      tmux \
      tmux-powerline \
@@ -86,7 +87,9 @@ sudo dnf install -y gnome-shell-extension-user-theme.noarch \
      lftp \
      calibre \
      gconf-editor \
-     dconf-editor
+     dconf-editor \
+     geary \ 
+     evolution-ews
 
 # Install Vagrant
 echo "Installing Vagrant"
@@ -124,7 +127,7 @@ sudo dnf install -y azure-cli
 sudo dnf install -y gtk-murrine-engine
 
 echo "Install Hack font"
-sudo dnf copr enable -y heliocastro/hack-fonts
+sudo dnf copr enable zawertun/hack-fonts
 sudo dnf install -y hack-fonts
 
 # Configure GNOME
