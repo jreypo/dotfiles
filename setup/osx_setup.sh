@@ -240,16 +240,16 @@ brew install dive
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-brew cask install firefox alfred filezilla cyberduck transmission balenaetcher tunnelblick rectangle slack
+brew install --cask firefox alfred filezilla cyberduck transmission balenaetcher tunnelblick rectangle slack
 
 # Install text editor
 echo "Installing Visual Studio Code"
-brew cask install visual-studio-code
+brew install --cask visual-studio-code
 
 # Install additional fonts
 echo "Installing additional fonts with Homebrew"
 brew tap caskroom/fonts
-brew cask install font-menlo-for-powerline font-hack
+brew install --cask font-ubuntu-mono-derivative-powerline font-menlo-for-powerline font-hack
 
 # Iterm2 configuration
 echo "Configuring iTerm 2"
