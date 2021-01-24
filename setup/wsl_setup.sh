@@ -49,6 +49,12 @@ pip3 install sfctl
 echo "Installing Powerline"
 sudo pip3 install powerline-status
 
+# Install Go
+echo "Installing Golang"
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install -y golang-go
+
 # Install aditional software
 echo "Installing more dev software"
 wget -q --show-progress --https-only --timestamping \
