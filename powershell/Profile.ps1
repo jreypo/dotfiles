@@ -16,16 +16,16 @@ function shorten-path([string] $path) {
 }
 
 function prompt {
-   write-host '[' -NoNewline -ForegroundColor gray
+   Write-Host '[' -NoNewline -ForegroundColor gray
    Write-Host "$ENV:USERNAME@" -NoNewline -ForegroundColor Yellow
    Write-Host "$ENV:COMPUTERNAME".ToLower() -NoNewline -ForegroundColor Yellow
-   write-host ']' -NoNewline -ForegroundColor gray
-   write-host '-[' -NoNewline -ForegroundColor gray
-   write-host (shorten-path (pwd).Path) -NoNewline -ForegroundColor white
+   Write-Host ']' -NoNewline -ForegroundColor gray
+   Write-Host '-[' -NoNewline -ForegroundColor gray
+   write-host (shorten-path (Get-Location).Path) -NoNewline -ForegroundColor white
    Write-VcsStatus
    $global:LASTEXITCODE = $realLASTEXITCODE
-   write-host ']' -ForegroundColor gray
-   write-host '%'-NoNewline
+   Write-Host ']' -ForegroundColor gray
+   Write-Host '%'-NoNewline
    return ' '
 }
 
@@ -51,6 +51,6 @@ Set-Alias -Name gep -Value Get-ExecutionPolicy
 Set-Alias -Name sep -Value Set-ExecutionPolicy
 Set-Alias -Name ll -Value Get-ChildItem
 Set-Alias -Name for	-Value ForEach-Object
-Set-Alias -Name packer -Value "C:\Program Files\Hashicorp\packer.exe"
-Set-Alias -Name terraform -Value "C:\Program Files\Hashicorp\terraform.exe"
+# Set-Alias -Name packer -Value "C:\Program Files\Hashicorp\packer.exe"
+# Set-Alias -Name terraform -Value "C:\Program Files\Hashicorp\terraform.exe"
 Set-Alias -Name .. -Value cd..
