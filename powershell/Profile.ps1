@@ -37,7 +37,7 @@ function cddash {
     } else {
         $pwd = $args[0];
     }
-    $tmp = pwd;
+    $tmp = Get-Location;
 
     if ($pwd) {
         Set-Location $pwd;
