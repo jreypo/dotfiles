@@ -1,7 +1,6 @@
 # Importing Modules #
 
-#Import-Module posh-git
-# Import-Module oh-my-posh
+Import-Module posh-git
 Import-Module DockerCompletion
 
 #Prompt Function
@@ -15,21 +14,22 @@ function shorten-path([string] $path) {
   return ($loc -replace '\\(\.?)([^\\]{3})[^\\]*(?=\\)','\$1$2')
 }
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\stelbent.minimal.omp.json" | Invoke-Expression
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\hul10.omp.json" | Invoke-Expression
 
-<# function prompt {
+function prompt {
+   $gitstatus = Write-VcsStatus
    Write-Host '[' -NoNewline -ForegroundColor gray
    Write-Host "$ENV:USERNAME@" -NoNewline -ForegroundColor Yellow
    Write-Host "$ENV:COMPUTERNAME".ToLower() -NoNewline -ForegroundColor Yellow
    Write-Host ']' -NoNewline -ForegroundColor gray
    Write-Host '-[' -NoNewline -ForegroundColor gray
    write-host (shorten-path (Get-Location).Path) -NoNewline -ForegroundColor white
-   Write-VcsStatus
-   $global:LASTEXITCODE = $realLASTEXITCODE
+ #  $global:LASTEXITCODE = $realLASTEXITCODE
    Write-Host ']' -ForegroundColor gray
-   Write-Host '%'-NoNewline
+   Write-Host $gitstatus -NoNewline
+   Write-Host '%' -NoNewline
    return ' '
-} #>
+}
 
 # Shell functions
 
