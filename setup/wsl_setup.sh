@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-# Setup script for Ubuntu GNOME 16.10
-#
 # Written by Juan Manuel Rey
 # Github: https://github.com/jreypo
 # Blog: http://blog.jreypo.io
