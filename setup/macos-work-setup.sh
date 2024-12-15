@@ -163,7 +163,7 @@ echo "Proceeding to install additional software"
 echo "Installing Homebrew"
 
 xcode-select --install
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew doctor
 
 read -p "Fix brew doctor issues and press any key when ready..."
