@@ -177,7 +177,7 @@ brew install mas
 echo "Installing software with Homebrew"
 
 # Install additional packages
-brew install bash asciinema htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id rar gpg gh openssl rtl-sdr telnet gettext iperf3
+brew install bash htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id rar gpg gh openssl rtl-sdr telnet gettext iperf3
 
 # Install dev and sysadmin tools
 brew install git python3 ansible httpie nmap azure-cli

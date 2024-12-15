@@ -174,7 +174,7 @@ brew update
 brew install mas
 
 # Install general utilities
-brew install asciinema htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id rar gpg gh openssl telnet gettext iperf3
+brew install htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id rar gpg gh openssl telnet gettext iperf3
 
 # Install dev and sysadmin tools
 brew install git python3 httpie nmap azure-cli
