@@ -164,24 +164,27 @@ echo "Installing Homebrew"
 
 xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew doctor
+echo "export PATH="/opt/homebrew/bin:/opt/homebew/sbin:$PATH"" >> $HOME/.bash_profile
+export PATH="/opt/homebrew/bin:/opt/homebew/sbin:$PATH"
+
+/opt/homebrew/bin/brew doctor
 
 read -p "Fix brew doctor issues and press any key when ready..."
 # Install general packages
-brew update
+/opt/homebrew/bin/brew update
 
 # Install MAS ClI
-brew install mas
+/opt/homebrew/bin/brew install mas
 
 # Install general utilities
-brew install htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id rar gpg gh openssl telnet gettext iperf3
+/opt/homebrew/bin/brew install htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id rar gpg gh openssl telnet gettext iperf3
 
 # Install dev and sysadmin tools
-brew install git python3 httpie nmap azure-cli
+/opt/homebrew/bin/brew install git python3 httpie nmap azure-cli
 
 # Install Kubernetes utilities
 echo "Installing Kubernetes utilities"
-brew install kubectl kubectx kubernetes-helm
+/opt/homebrew/bin/brew install kubectl kubectx kubernetes-helm
 
 # Install Powerline
 echo "Installing Powerline"
@@ -191,24 +194,24 @@ pip install psutil
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-brew install --cask firefox alfred cyberduck rectangle docker visual-studio-code git-credential-manager postman microsoft-edge appcleaner transmission dotnet
+/opt/homebrew/bin/brew install --cask firefox alfred cyberduck rectangle docker visual-studio-code git-credential-manager postman microsoft-edge appcleaner transmission dotnet
 
 # Install additional fonts
 echo "Installing additional fonts with Homebrew"
-brew install --cask font-ubuntu-mono-derivative-powerline font-menlo-for-powerline font-hack
+/opt/homebrew/bin/brew install --cask font-ubuntu-mono-derivative-powerline font-menlo-for-powerline font-hack
 
 # Inbstall iTerm2
 echo "Installing iTerm2"
-brew install --cask iterm2
+/opt/homebrew/bin/brew install --cask iterm2
 
 # Install MAS software
 echo "Installing software with MAS"
-mas install 1230249825
-mas install 497799835
-mas install 425424353
-mas install 1295203466
-mas install 1274495053
-mas install 1193539993
+/opt/homebrew/bin/mas install 1230249825
+/opt/homebrew/bin/mas install 497799835
+/opt/homebrew/bin/mas install 425424353
+/opt/homebrew/bin/mas install 1295203466
+/opt/homebrew/bin/mas install 1274495053
+/opt/homebrew/bin/mas install 1193539993
 
 # Iterm2 configuration
 echo "Configuring iTerm 2"
@@ -223,6 +226,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 # Set BASH as degtault shell
 echo "Setting BASH as default shell"
+echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
 chsh -s /user/local/bin/bash 
 
 echo ".dotfiles setup"
