@@ -1,8 +1,10 @@
-# Script: Jumpbox-Setup.ps1
-# Purpose: Automated setup for new Windows jumpbox instances
+# Automated setup for new Windows dev machine. Installs essential tools, configures WSL2, Docker, VS Code extensions, and Azure CLI with logging and idempotency.
+#
 # Author: Juan Manuel Rey @jreypo
-# Last Updated: 2025-06-06
-# Description: Installs essential tools, configures WSL2, Docker, VS Code extensions, and Azure CLI with logging and idempotency.
+# Github: https://github.com/jreypo
+# Blog: http://blog.jreypo.io
+# Last Updated: 2025-08-29
+#
 
 #Requires -RunAsAdministrator
 param(
@@ -19,13 +21,15 @@ function Log {
     "$timestamp $Message" | Tee-Object -FilePath $LogFile -Append
 }
 
-Log "--- Jumpbox-Setup.ps1 started ---"
+Log "--- Windows-Setup.ps1 started ---"
 
 # Define the list of applications to install
 $applications = @(
     "Microsoft.VisualStudioCode",
-    "Notepad++",
+    "Mozilla.Firefox",
+    "7zip.7zip",
     "Microsoft.Git",
+    "Microsoft.PowerToys",
     "Python.Python.3.13",
     "SourceFoundry.HackFonts",
     "PuTTY.PuTTY",
@@ -33,11 +37,11 @@ $applications = @(
     "Microsoft.Windbg",
     "Microsoft.Sysinternals",
     "WinSCP.WinSCP",
-    "DevToys-app.DevToys",
+    "9PGCV4V3BK4W", # DevToys
     "Postman.Postman",
     "httpie.httpie",
-    "Microsoft.Bicep",
-    "Microsoft.Azure.StorageExplorer"
+    "GitHub.cli",
+    "Microsoft.Bicep"
 )
 
 # Function to check if an app is already installed via winget
@@ -252,7 +256,7 @@ if (Is-AppInstalled 'Microsoft.AzureCLI') {
     }
 }
 
-Log "--- Jumpbox-Setup.ps1 completed ---"
+Log "--- Windows-Setup.ps1 completed ---"
 Write-Host "\nSetup complete. Please review $LogFile for details."
 if (-not $SkipWSL) {
     Write-Host "If you enabled or installed WSL, please restart your computer to finalize the setup."
