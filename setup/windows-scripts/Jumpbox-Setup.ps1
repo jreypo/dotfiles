@@ -1,8 +1,10 @@
-# Script: Windows-Setup.ps1
-# Purpose: Automated setup for new Windows instances
+# Automated setup for new Windows Server dev jumpbox instances in Azure. Installs essential tools, configures WSL2, Docker, VS Code extensions, and Azure CLI with logging and idempotency.
+#
 # Author: Juan Manuel Rey @jreypo
+# Github: https://github.com/jreypo
+# Blog: http://blog.jreypo.io
 # Last Updated: 2025-06-06
-# Description: Installs essential tools, configures WSL2, Docker, VS Code extensions, and Azure CLI with logging and idempotency.
+#
 
 #Requires -RunAsAdministrator
 param(
@@ -19,15 +21,13 @@ function Log {
     "$timestamp $Message" | Tee-Object -FilePath $LogFile -Append
 }
 
-Log "--- Windows-Setup.ps1 started ---"
+Log "--- Jumpbox-Setup.ps1 started ---"
 
 # Define the list of applications to install
 $applications = @(
     "Microsoft.VisualStudioCode",
-    "Mozilla.Firefox",
-    "7zip.7zip",
+    "Notepad++",
     "Microsoft.Git",
-    "Microsoft.PowerToys",
     "Python.Python.3.13",
     "SourceFoundry.HackFonts",
     "PuTTY.PuTTY",
@@ -35,11 +35,11 @@ $applications = @(
     "Microsoft.Windbg",
     "Microsoft.Sysinternals",
     "WinSCP.WinSCP",
-    "9PGCV4V3BK4W", # DevToys
+    "DevToys-app.DevToys",
     "Postman.Postman",
     "httpie.httpie",
-    "GitHub.cli",
-    "Microsoft.Bicep"
+    "Microsoft.Bicep",
+    "Microsoft.Azure.StorageExplorer"
 )
 
 # Function to check if an app is already installed via winget
@@ -49,7 +49,7 @@ function Is-AppInstalled {
     return ($result -match $AppId)
 }
 
-# Function to install applications using winget
+# Install applications using winget
 function Install-Applications {
     foreach ($app in $applications) {
         if (Is-AppInstalled $app) {
@@ -85,7 +85,7 @@ function Install-WSL {
     }
 }
 
-# insttall VS Code extensions
+# install VS Code extensions
 function Install-VSCodeExtensions {
     $extensions = @(
         "ms-python.python",
@@ -254,7 +254,7 @@ if (Is-AppInstalled 'Microsoft.AzureCLI') {
     }
 }
 
-Log "--- Windows-Setup.ps1 completed ---"
+Log "--- Jumpbox-Setup.ps1 completed ---"
 Write-Host "\nSetup complete. Please review $LogFile for details."
 if (-not $SkipWSL) {
     Write-Host "If you enabled or installed WSL, please restart your computer to finalize the setup."
