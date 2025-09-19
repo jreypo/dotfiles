@@ -1,0 +1,91 @@
+[user]
+	name = Juan Manuel Rey
+	email = juanmanuel.reyportal@gmail.com
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = code --wait
+  eol = lf
+  autocrlf = input
+
+[push]
+  default = simple
+
+[color]
+  ui = true
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[alias]
+  # Add
+	a  = add
+	aa = add -A
+
+	# Branch
+	b  = branch
+	ba = branch -a
+
+	# Checking out
+	co = checkout
+	cb = checkout -b
+	cm = checkout master
+
+	# Commit
+	ci  = commit -v
+	cim = commit -v -m
+	rc  = commit --amend -v
+
+	# Diff
+	d  = diff
+	dc = diff --cached
+
+	# Fetch
+	f = fetch
+
+	# Log
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ll = log --stat --abbrev-commit
+
+	# Push
+	p  = push
+	pf = push -f
+
+	# Pull
+	pl = pull
+  pr = pull-request
+
+	# Rebase
+	rbm = rebase master
+	rbc	= rebase --continue
+	rbi	= rebase -i
+
+	# Reset
+	unstage  = reset HEAD
+	uncommit = reset --soft HEAD^
+
+	# Status
+	s = status -sb
+
+[github]
+	user = jreypo
+
+[pull]
+	rebase = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+[credential]
+	helper = 
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[http]
+	sslVerify = false
+[credential "https://github.com"]
+	useHttpPath = true
