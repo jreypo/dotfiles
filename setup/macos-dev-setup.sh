@@ -3,7 +3,7 @@
 #
 # Author: Juan Manuel Rey
 # Github: https://github.com/jreypo
-# Blog: http://blog.jreypo.io
+# Blog: https://jreypo.io
 #
 
 # Credit: Jeff Geerling for the following repos:
@@ -197,7 +197,7 @@ pip install psutil
 
 # Install sofware with Homebrew Cask
 echo "Installing software with Homebrew Cask"
-/opt/homebrew/bin/brew install --cask firefox alfred cyberduck qbittorrent balenaetcher tunnelblick rectangle git-credential-manager netnewswire tor-browser signal postman microsoft-edge google-chrome visual-studio-code dotnet docker appcleaner vlc
+/opt/homebrew/bin/brew install --cask firefox alfred cyberduck qbittorrent balenaetcher tunnelblick rectangle git-credential-manager netnewswire tor-browser signal postman microsoft-edge google-chrome visual-studio-code dotnet docker appcleaner vlc keka
 
 # Install additional fonts
 echo "Installing additional fonts with Homebrew"
@@ -210,7 +210,6 @@ echo "Installing iTerm2"
 # Install MAS software
 /opt/homebrew/bin/mas install 1230249825
 /opt/homebrew/bin/mas install 497799835
-/opt/homebrew/bin/mas install 425424353
 /opt/homebrew/bin/mas install 1295203466
 /opt/homebrew/bin/mas install 1193539993
 
