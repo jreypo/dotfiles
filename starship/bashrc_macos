@@ -1,0 +1,177 @@
+#!/bin/bash
+# Bashrc for macOS with Starship
+# Juan Manuel Rey - jreypo
+
+# ============================================
+# Environment Detection
+# ============================================
+ARCH=$(uname -m)
+if [[ "$ARCH" == "arm64" ]]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+else
+    HOMEBREW_PREFIX="/usr/local"
+fi
+
+# ============================================
+# PATH Configuration
+# ============================================
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Go
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOMEBREW_PREFIX/opt/go/libexec/bin"
+
+# Rust
+if [[ -f "$HOME/.cargo/env" ]]; then
+    source "$HOME/.cargo/env"
+fi
+
+# Python (Homebrew)
+export PATH="$HOMEBREW_PREFIX/opt/python/libexec/bin:$PATH"
+
+# ============================================
+# Locale
+# ============================================
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# ============================================
+# Editor
+# ============================================
+export EDITOR="vim"
+export VISUAL="code --wait"
+
+# ============================================
+# History Configuration
+# ============================================
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+# ============================================
+# Shell Options
+# ============================================
+shopt -s checkwinsize
+shopt -s cdspell
+shopt -s dirspell 2>/dev/null
+shopt -s autocd 2>/dev/null
+shopt -s globstar 2>/dev/null
+
+# ============================================
+# Colors
+# ============================================
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# ============================================
+# Source Aliases
+# ============================================
+DOTFILES_DIR="${HOME}/.dotfiles"
+if [[ -f "${DOTFILES_DIR}/starship/bash_aliases" ]]; then
+    source "${DOTFILES_DIR}/starship/bash_aliases"
+elif [[ -f "${HOME}/dotfiles/starship/bash_aliases" ]]; then
+    source "${HOME}/dotfiles/starship/bash_aliases"
+fi
+
+# ============================================
+# Homebrew Bash Completion
+# ============================================
+if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+elif [[ -r "${HOMEBREW_PREFIX}/etc/bash_completion" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/bash_completion"
+fi
+
+# ============================================
+# Kubectl Completion
+# ============================================
+if command -v kubectl &>/dev/null; then
+    source <(kubectl completion bash)
+    complete -F __start_kubectl k
+fi
+
+# ============================================
+# Helm Completion
+# ============================================
+if command -v helm &>/dev/null; then
+    source <(helm completion bash)
+fi
+
+# ============================================
+# Terraform Completion
+# ============================================
+if command -v terraform &>/dev/null; then
+    complete -C "$(command -v terraform)" terraform
+fi
+
+# ============================================
+# Pulumi Completion
+# ============================================
+if command -v pulumi &>/dev/null; then
+    source <(pulumi gen-completion bash)
+fi
+
+# ============================================
+# Azure CLI Completion
+# ============================================
+if [[ -f "${HOMEBREW_PREFIX}/etc/bash_completion.d/az" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/bash_completion.d/az"
+fi
+
+# ============================================
+# GitHub CLI Completion
+# ============================================
+if command -v gh &>/dev/null; then
+    eval "$(gh completion -s bash)"
+fi
+
+# ============================================
+# Docker Completion
+# ============================================
+if [[ -f "${HOMEBREW_PREFIX}/etc/bash_completion.d/docker" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/bash_completion.d/docker"
+fi
+
+# ============================================
+# Git Completion (usually via bash_completion)
+# ============================================
+if [[ -f "${HOMEBREW_PREFIX}/etc/bash_completion.d/git-completion.bash" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/bash_completion.d/git-completion.bash"
+fi
+
+# ============================================
+# NVM (Node Version Manager)
+# ============================================
+export NVM_DIR="$HOME/.nvm"
+if [[ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"
+fi
+if [[ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ]]; then
+    source "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"
+fi
+
+# ============================================
+# fzf (Fuzzy Finder)
+# ============================================
+if [[ -f "${HOMEBREW_PREFIX}/opt/fzf/shell/completion.bash" ]]; then
+    source "${HOMEBREW_PREFIX}/opt/fzf/shell/completion.bash"
+fi
+if [[ -f "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.bash" ]]; then
+    source "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.bash"
+fi
+
+# ============================================
+# Starship Prompt
+# ============================================
+export STARSHIP_CONFIG="${DOTFILES_DIR}/starship/starship.toml"
+if [[ ! -f "$STARSHIP_CONFIG" ]]; then
+    export STARSHIP_CONFIG="${HOME}/dotfiles/starship/starship.toml"
+fi
+
+if command -v starship &>/dev/null; then
+    eval "$(starship init bash)"
+fi

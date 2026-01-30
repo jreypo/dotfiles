@@ -244,11 +244,15 @@ esac
 echo "Installing Kubernetes utilities"
 $HOMEBREW_PREFIX/bin/brew install kubectl kubectx kubernetes-helm
 
-# Install Powerline
+# Install Powerline (for tmux and vim)
 echo "Installing Powerline"
 pip3 install --upgrade pip
 pip3 install --user powerline-status
 pip3 install --user psutil
+
+# Install Starship prompt
+echo "Installing Starship"
+$HOMEBREW_PREFIX/bin/brew install starship
 
 # Install software with Homebrew Cask
 echo "Installing software with Homebrew Cask"
@@ -267,9 +271,9 @@ case $profile_choice in
         ;;
 esac
 
-# Install additional fonts
+# Install additional fonts (including Nerd Fonts for Starship icons)
 echo "Installing additional fonts with Homebrew"
-$HOMEBREW_PREFIX/bin/brew install --cask font-ubuntu-mono-derivative-powerline font-menlo-for-powerline font-hack
+$HOMEBREW_PREFIX/bin/brew install --cask font-hack-nerd-font font-meslo-lg-nerd-font font-ubuntu-mono-derivative-powerline font-menlo-for-powerline
 
 # Install iTerm2
 echo "Installing iTerm2"
@@ -330,24 +334,33 @@ for link in ".vimrc:vim/vimrc" ".tmux.conf:tmux/tmux.conf" ".gitconfig:git/gitco
     ln -sf "$dotfiles/$source" "$HOME/$target"
 done
 
-## Bash-it setup
-echo "Installing and configuring Bash-it"
+## Starship setup
+echo "Configuring Starship prompt"
 
-if [[ ! -d "$HOME/.bash_it" ]]; then
-    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-    "$HOME/.bash_it/install.sh" --interactive
+# Create starship config directory
+mkdir -p "$HOME/.config"
+
+# Symlink starship configuration
+if [[ -e "$HOME/.config/starship.toml" ]] && [[ ! -L "$HOME/.config/starship.toml" ]]; then
+    mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.backup"
 fi
+ln -sf "$dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
 
-mkdir -p "$HOME/.bash_it/custom/aliases"
-mkdir -p "$HOME/.bash_it/custom/themes/modern-jmr"
-ln -sf "$dotfiles/bash_it/custom.aliases.bash" "$HOME/.bash_it/custom/custom.aliases.bash"
-ln -sf "$dotfiles/bash_it/modern-jmr.theme.bash" "$HOME/.bash_it/custom/themes/modern-jmr/modern-jmr.theme.bash"
+# Configure bash to use starship via our bashrc
+# Back up existing .bashrc if it exists and is not a symlink
+if [[ -e "$HOME/.bashrc" ]] && [[ ! -L "$HOME/.bashrc" ]]; then
+    mv "$HOME/.bashrc" "$HOME/.bashrc.backup"
+fi
+ln -sf "$dotfiles/starship/bashrc_macos" "$HOME/.bashrc"
 
-# Add locale settings to bash_profile
-if ! grep -q "LC_ALL=en_US.UTF-8" "$HOME/.bash_profile"; then
+# Source .bashrc from .bash_profile if not already configured
+if ! grep -q "source.*\.bashrc" "$HOME/.bash_profile" 2>/dev/null; then
     cat >> "$HOME/.bash_profile" << 'EOF'
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+
+# Source bashrc for interactive shell settings
+if [[ -f "$HOME/.bashrc" ]]; then
+    source "$HOME/.bashrc"
+fi
 EOF
 fi
 

@@ -1,0 +1,204 @@
+# Starship Configuration
+# Juan Manuel Rey - jreypo
+# Mimics the modern-jmr bash-it theme
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Main prompt format - two-line prompt like modern-jmr theme
+format = """
+[┌─](bold white)$username$hostname[─](bold white)$directory$git_branch$git_status$pulumi$python$golang$rust$terraform$fill$cmd_duration
+[└─](bold white)$character"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# Right prompt (optional, can be used for additional info)
+right_format = ""
+
+# ============================================
+# Character (prompt symbol)
+# ============================================
+[character]
+success_symbol = "[→](bold green)"
+error_symbol = "[→](bold red)"
+vimcmd_symbol = "[←](bold yellow)"
+
+# ============================================
+# Username
+# ============================================
+[username]
+style_user = "bold yellow"
+style_root = "bold red"
+format = "[\\[$user](bold yellow)"
+show_always = true
+disabled = false
+
+# ============================================
+# Hostname
+# ============================================
+[hostname]
+ssh_only = false
+format = "[@$hostname\\]](bold yellow)"
+disabled = false
+
+# ============================================
+# Directory
+# ============================================
+[directory]
+style = "bold cyan"
+format = "[─\\[$path\\]](bold cyan)"
+truncation_length = 5
+truncate_to_repo = false
+home_symbol = "~"
+
+# ============================================
+# Git Branch
+# ============================================
+[git_branch]
+symbol = "± "
+style = "bold purple"
+format = "[─\\[](bold white)[$symbol$branch](bold purple)"
+truncation_length = 20
+
+# ============================================
+# Git Status
+# ============================================
+[git_status]
+format = "[$all_status$ahead_behind](bold purple)[\\]](bold white)"
+conflicted = " !"
+ahead = " ⇡${count}"
+behind = " ⇣${count}"
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
+untracked = " ?"
+stashed = " $"
+modified = " [✗](bold red)"
+staged = " [✓](bold green)"
+renamed = " »"
+deleted = " ✘"
+up_to_date = " [✓](bold green)"
+
+# ============================================
+# Pulumi
+# ============================================
+[pulumi]
+symbol = " "
+style = "bold yellow"
+format = "[─\\[$symbol($stack)\\]](bold yellow)"
+disabled = false
+
+# ============================================
+# Python
+# ============================================
+[python]
+symbol = " "
+style = "bold yellow"
+format = "[─\\[$symbol$pyenv_prefix($version)(\\($virtualenv\\))\\]](bold yellow)"
+python_binary = ["python3", "python"]
+detect_extensions = ["py"]
+detect_files = [".python-version", "Pipfile", "pyproject.toml", "requirements.txt", "setup.py", "tox.ini"]
+
+# ============================================
+# Go
+# ============================================
+[golang]
+symbol = " "
+style = "bold cyan"
+format = "[─\\[$symbol($version)\\]](bold cyan)"
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum", "go.work", "glide.yaml", "Gopkg.yml", "Gopkg.lock", ".go-version"]
+
+# ============================================
+# Rust
+# ============================================
+[rust]
+symbol = " "
+style = "bold red"
+format = "[─\\[$symbol($version)\\]](bold red)"
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+
+# ============================================
+# Terraform
+# ============================================
+[terraform]
+symbol = "󱁢 "
+style = "bold 105"
+format = "[─\\[$symbol$workspace\\]](bold 105)"
+detect_extensions = ["tf", "tfplan", "tfstate"]
+detect_files = [".terraform-version"]
+detect_folders = [".terraform"]
+
+# ============================================
+# Command Duration
+# ============================================
+[cmd_duration]
+min_time = 2_000
+format = "[─\\[took $duration\\]](bold yellow)"
+show_milliseconds = false
+
+# ============================================
+# Fill (space between left and right)
+# ============================================
+[fill]
+symbol = " "
+
+# ============================================
+# Disabled modules (keeping prompt clean)
+# ============================================
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[package]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ruby]
+disabled = true
+
+[java]
+disabled = true
+
+[lua]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[swift]
+disabled = true
+
+[zig]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[battery]
+disabled = true
+
+[time]
+disabled = true
+
+[line_break]
+disabled = true
