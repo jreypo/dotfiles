@@ -1,0 +1,86 @@
+# Bash aliases for macOS with Starship
+# Juan Manuel Rey - jreypo
+
+# ============================================
+# File system operations
+# ============================================
+alias bdf='df -H'
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
+alias ..='cd ..'                     # Go up one directory
+alias cd..='cd ..'                   # Common misspelling for going up one directory
+alias ...='cd ../..'                 # Go up two directories
+alias ....='cd ../../..'             # Go up three directories
+alias -- -='cd -'                    # Go back
+alias dow='cd /home/$USER/Downloads' # Go to the Downloads directory
+
+# Shell History
+alias h='history'
+
+# ============================================
+# Listing and viewing
+# ============================================
+alias ls='ls -aFG'
+alias ll='ls -ls'
+alias l='ls -lsh'
+
+# ============================================
+# Process management
+# ============================================
+alias lports='netstat -anf inet -p tcp | grep LISTEN'
+alias htop='sudo htop'
+alias j='jobs -l'
+
+# ============================================
+# Tools
+# ============================================
+alias ktx=kubectx
+alias python=/usr/local/bin/python3
+alias pip=/usr/local/bin/pip3
+
+# ============================================
+# Kubernetes aliases
+# ============================================
+alias k='kubectl'
+alias deployments='kubectl get deployment'
+alias pods='kubectl get pods -o wide'
+alias nodes='kubectl get node -o wide'
+alias contexts='kubectl config get-contexts'
+alias context='kubectl config use-context'
+alias kclusters='kubectl config get-clusters'
+alias kdd='kubectl describe deployment'
+alias kdp='kubectl describe pod'
+alias kds='kubectl describe service'
+alias klogs='kubectl logs'
+alias kd='kubectl get nodes -o wide'
+alias ksvc='kubectl get svc -o wide'
+
+# ============================================
+# Git aliases (supplement git config aliases)
+# ============================================
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gpl='git pull'
+alias gd='git diff'
+alias gl='git log --oneline -10'
+
+# ============================================
+# Homebrew aliases 
+# ============================================
+
+if command -v brew &> /dev/null; then
+        alias bed='brew edit'
+        alias bls='brew list'
+        alias bsr='brew search'
+        alias bdr='brew doctor'
+        alias bin='brew install'
+        alias bcl='brew cleanup'
+        alias brm='brew uninstall'
+        alias bout='brew outdated'
+        alias binf='brew info'
+        alias bup='brew update && brew upgrade'
+fi
