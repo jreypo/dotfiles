@@ -28,9 +28,9 @@ vimcmd_symbol = "[←](bold yellow)"
 # Username
 # ============================================
 [username]
-style_user = "bold yellow"
+style_user = "white"
 style_root = "bold red"
-format = "[\\[$user](bold yellow)"
+format = "[\\[$user](white)"
 show_always = true
 disabled = false
 
@@ -39,7 +39,7 @@ disabled = false
 # ============================================
 [hostname]
 ssh_only = false
-format = "[@$hostname\\]](bold yellow)"
+format = "[@$hostname\\]](white)"
 disabled = false
 
 # ============================================
