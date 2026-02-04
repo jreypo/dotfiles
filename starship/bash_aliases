@@ -8,6 +8,15 @@ alias bdf='df -H'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
+alias ..='cd ..'                     # Go up one directory
+alias cd..='cd ..'                   # Common misspelling for going up one directory
+alias ...='cd ../..'                 # Go up two directories
+alias ....='cd ../../..'             # Go up three directories
+alias -- -='cd -'                    # Go back
+alias dow='cd /home/$USER/Downloads' # Go to the Downloads directory
+
+# Shell History
+alias h='history'
 
 # ============================================
 # Listing and viewing
@@ -58,3 +67,20 @@ alias gp='git push'
 alias gpl='git pull'
 alias gd='git diff'
 alias gl='git log --oneline -10'
+
+# ============================================
+# Homebrew aliases 
+# ============================================
+
+if _command_exists brew; then
+        alias bed='brew edit'
+        alias bls='brew list'
+        alias bsr='brew search'
+        alias bdr='brew doctor'
+        alias bin='brew install'
+        alias bcl='brew cleanup'
+        alias brm='brew uninstall'
+        alias bout='brew outdated'
+        alias binf='brew info'
+        alias bup='brew update && brew upgrade'
+fi
