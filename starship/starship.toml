@@ -82,7 +82,7 @@ up_to_date = " [✓](bold green)"
 # Pulumi
 # ============================================
 [pulumi]
-symbol = " "
+symbol = " "
 style = "bold yellow"
 format = "[─\\[$symbol($stack)\\]](bold yellow)"
 disabled = false
@@ -91,7 +91,7 @@ disabled = false
 # Python
 # ============================================
 [python]
-symbol = " "
+symbol = " "
 style = "bold yellow"
 format = "[─\\[$symbol$pyenv_prefix($version)(\\($virtualenv\\))\\]](bold yellow)"
 python_binary = ["python3", "python"]
@@ -102,7 +102,7 @@ detect_files = [".python-version", "Pipfile", "pyproject.toml", "requirements.tx
 # Go
 # ============================================
 [golang]
-symbol = " "
+symbol = " "
 style = "bold cyan"
 format = "[─\\[$symbol($version)\\]](bold cyan)"
 detect_extensions = ["go"]
@@ -112,7 +112,7 @@ detect_files = ["go.mod", "go.sum", "go.work", "glide.yaml", "Gopkg.yml", "Gopkg
 # Rust
 # ============================================
 [rust]
-symbol = " "
+symbol = " "
 style = "bold red"
 format = "[─\\[$symbol($version)\\]](bold red)"
 detect_extensions = ["rs"]
