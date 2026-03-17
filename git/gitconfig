@@ -1,6 +1,6 @@
 [user]
 	name = Juan Manuel Rey
-	email = juanmanuel.reyportal@gmail.com
+	email = jreypo@outlook.com
 
 [core]
   excludesfile = ~/.gitignore_global
@@ -80,14 +80,14 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
-[credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [http]
 	sslVerify = false
 [credential "https://ado-server.starlabs.local"]
 	provider = generic
 [credential "https://github.com"]
+	useHttpPath = true
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
 	useHttpPath = true
