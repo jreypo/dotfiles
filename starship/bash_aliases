@@ -38,6 +38,7 @@ alias j='jobs -l'
 alias ktx=kubectx
 alias python=/usr/local/bin/python3
 alias pip=/usr/local/bin/pip3
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # ============================================
 # Kubernetes aliases
