@@ -221,7 +221,7 @@ $HOMEBREW_PREFIX/bin/brew install mas
 echo "Installing software with Homebrew"
 
 # Install shell and general utilities
-$HOMEBREW_PREFIX/bin/brew install bash htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id rar gpg gh openssl telnet gettext iperf3
+$HOMEBREW_PREFIX/bin/brew install bash htop coreutils wget xz watch neofetch dos2unix lftp pandoc tmux ssh-copy-id gh openssl telnet gettext iperf3
 
 # Install dev and sysadmin tools
 $HOMEBREW_PREFIX/bin/brew install git python3 httpie nmap azure-cli
@@ -258,7 +258,7 @@ $HOMEBREW_PREFIX/bin/brew install starship
 echo "Installing software with Homebrew Cask"
 
 # Common applications for both profiles
-$HOMEBREW_PREFIX/bin/brew install --cask firefox alfred cyberduck rectangle docker visual-studio-code git-credential-manager postman microsoft-edge appcleaner dotnet
+$HOMEBREW_PREFIX/bin/brew install --cask firefox alfred cyberduck rectangle taskexplorer visual-studio-code git-credential-manager bruno microsoft-edge appcleaner dotnet rar devtoys gpg-suite
 
 case $profile_choice in
     1)
@@ -286,8 +286,9 @@ echo "Note: You must be signed into the Mac App Store"
 # Common MAS apps
 $HOMEBREW_PREFIX/bin/mas install 1230249825 || true  # NepTunes
 $HOMEBREW_PREFIX/bin/mas install 497799835 || true   # Xcode
-$HOMEBREW_PREFIX/bin/mas install 1295203466 || true  # Microsoft Remote Desktop
+$HOMEBREW_PREFIX/bin/mas install 1295203466 || true  # Microsoft Remote Desktop / Microsoft Windows App
 $HOMEBREW_PREFIX/bin/mas install 1193539993 || true  # Brother iPrint&Scan
+$HOMEBREW_PREFIX/bin/mas install 1475387142 || true  # Tailscale
 
 case $profile_choice in
     1)
